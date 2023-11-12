@@ -1,0 +1,582 @@
+[
+  {
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Zebra Plant",
+      "botanical_name": "Aphelandra squarrosa",
+      "category": 1,
+      "description": "The Zebra Plant, known for its distinctive striped foliage, adds a touch of boldness to indoor spaces. Flourishing in indirect Light and moist soil, this plant showcases its unique patterns while bringing a sense of vibrancy and life indoors.",
+      "image": "zebra_plant.webp",
+      "size": "Medium",
+      "price": 12.00,
+      "discount_price": 8.99,
+      "rating": 4.30,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Jade Plant",
+      "botanical_name": "Crassula ovata",
+      "category": 4,
+      "description": "The Jade Plant, with its thick, fleshy leaves, exudes a sense of resilience and prosperity. Flourishing in Bright Light and well-drained soil, this plant symbolizes good luck and abundance while adding a touch of elegance to indoor sanctuaries.",
+      "image": "jade_plant.webp",
+      "size": "Small",
+      "price": 28.95,
+      "discount_price": 8.99,
+      "rating": 4.40,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Crown of Thorns",
+      "botanical_name": "Euphorbia milii",
+      "category": 3,
+      "description": "The Crown of Thorns boasts vibrant blooms and spiky stems, showcasing its tenacity and beauty. Flourishing in Bright Light and well-drained soil, this plant adds a touch of drama and color to indoor spaces while requiring minimal watering.",
+      "image": "crown_of_thorns.webp",
+      "size": "Medium",
+      "price": 6.99,
+      "discount_price": 8.99,
+      "rating": 4.60,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Low",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Weeping Fig",
+      "botanical_name": "Ficus benjamina",
+      "category": 1,
+      "description": "The Weeping Fig's gracefully drooping leaves create an atmosphere of elegance and tranquility indoors. Flourishing in indirect Light and rich, fast-draining soil, this plant adds a touch of sophistication and greenery to indoor sanctuaries.",
+      "image": "weeping_fig.webp",
+      "size": "Large",
+      "price": 14.99,
+      "discount_price": 8.99,
+      "rating": 4.30,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Sago Palm",
+      "botanical_name": "Cycas revoluta",
+      "category": 1,
+      "description": "The Sago Palm's feathery fronds and sturdy trunk evoke a sense of timeless beauty and strength. Flourishing in Bright Light to Indirect Light and sandy, moist, well-drained soil, this palm adds a touch of tropical elegance to indoor spaces.",
+      "image": "sago_palm.webp",
+      "size": "Large",
+      "price": 19.99,
+      "discount_price": 8.99,
+      "rating": 4.40,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Golden Pothos",
+      "botanical_name": "Epipremnum aureum",
+      "category": 3,
+      "description": "The Golden Pothos, with its trailing vines and heart-shaped leaves, brings a touch of lushness and vitality to indoor spaces. Flourishing in Indirect Light and moist, well-drained soil, this plant purifies the air while adding a sense of abundance.",
+      "image": "golden_pothos.webp",
+      "size": "Small",
+      "price": 11.99,
+      "discount_price": 8.99,
+      "rating": 4.60,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Snake Plant",
+      "botanical_name": "Sansevieria trifasciata",
+      "category": 3,
+      "description": "The Snake Plant's upright, sword-like leaves exude an air of resilience and modern elegance. Flourishing in Indirect Light and sandy, well-drained soil, this plant purifies the air while adding a touch of sophistication to indoor spaces.",
+      "image": "snake_plant.webp",
+      "size": "Medium",
+      "price": 16.99,
+      "discount_price": 8.99,
+      "rating": 4.80,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Prayer Plant",
+      "botanical_name": "Maranta leuconeura",
+      "category": 1,
+      "description": "The Prayer Plant's mesmerizing foliage folds up at night, giving a sense of movement and spirituality. Flourishing in Indirect Light to full shade and moist, well-drained soil, this plant adds an element of mindfulness and tranquility to indoor spaces.",
+      "image": "prayer_plant.webp",
+      "size": "Medium",
+      "price": 18.75,
+      "discount_price": 8.99,
+      "rating": 4.80,
+      "preferred_light": "Low Light",
+      "watering_needs": "High",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Wax Plant Begonia",
+      "botanical_name": "Begonia Semperflorens Cultorum Group",
+      "category": 2,
+      "description": "The Wax Plant Begonia graces indoor spaces with its waxy, colorful blooms and textured leaves. Flourishing in Bright Light to Indirect Light and rich, moist, well-drained soil, this begonia infuses a touch of charm and elegance.",
+      "image": "wax_plant_begonia.webp",
+      "size": "Medium",
+      "price": 33.00,
+      "discount_price": 8.99,
+      "rating": 4.80,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Umbrella Plant",
+      "botanical_name": "Schefflera arboricola",
+      "category": 1,
+      "description": "The Umbrella Plant's umbrella-like leaves create a canopy of beauty and shade in indoor spaces. Flourishing in Bright Light to Indirect Light and rich, moderately moist soil, this plant adds a touch of lushness and natural beauty.",
+      "image": "umbrella_plant.webp",
+      "size": "Medium",
+      "price": 24.50,
+      "discount_price": 8.99,
+      "rating": 4.30,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Arrowhead Plant",
+      "botanical_name": "Syngonium podophyllum",
+      "category": 1,
+      "description": "The Arrowhead Plant's arrow-shaped leaves showcase its unique growth patterns and versatility. Flourishing in Indirect Light and moist, well-drained soil, this plant adds a touch of elegance and greenery to indoor spaces.",
+      "image": "arrowhead_plant.webp",
+      "size": "Large",
+      "price": 5.99,
+      "discount_price": 8.99,
+      "rating": 4.30,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Rabbit's Foot Fern",
+      "botanical_name": "Davallia Fejeensis",
+      "category": 1,
+      "description": "The Rabbit's Foot Fern's furry rhizomes evoke the image of a rabbit's paw, adding a sense of playfulness to indoor spaces. Flourishing in Indirect Light and rich, loamy soil, this fern brings a touch of nature's charm indoors.",
+      "image": "rabbit_s_foot_fern.webp",
+      "size": "Small",
+      "price": 6.99,
+      "discount_price": 8.99,
+      "rating": 4.60,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Peace Lily",
+      "botanical_name": "Spathiphyllum",
+      "category": 3,
+      "description": "The Peace Lily's elegant white blooms symbolize purity and serenity, making it a favorite for indoor spaces. Flourishing in Indirect Light to full shade and moist, well-drained soil, this plant adds a touch of grace and tranquility.",
+      "image": "peace_lily.webp",
+      "size": "Medium",
+      "price": 9.99,
+      "discount_price": 8.99,
+      "rating": 4.10,
+      "preferred_light": "Low Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "ZZ plant",
+      "botanical_name": "Zamioculcas Zamifolia",
+      "category": 3,
+      "description": "The ZZ Plant's glossy, dark green leaves thrive even in low-light conditions, adding a touch of modern elegance to indoor spaces. Flourishing in Indirect Light to full shade and well-drained soil, this plant requires minimal care while adding a dose of sophistication.",
+      "image": "zz_plant.webp",
+      "size": "Small",
+      "price": 11.99,
+      "discount_price": 8.99,
+      "rating": 4.00,
+      "preferred_light": "Low Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Parlor Palm",
+      "botanical_name": "Chamaedorea elegans",
+      "category": 3,
+      "description": "The Parlor Palm's delicate fronds create an aura of relaxation and elegance in indoor spaces. Flourishing in Indirect Light to full shade and well-drained soil, this palm adds a touch of tropical tranquility to home sanctuaries.",
+      "image": "parlor_palm.webp",
+      "size": "Large",
+      "price": 12.99,
+      "discount_price": 8.99,
+      "rating": 4.00,
+      "preferred_light": "Low Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Rubber Plant",
+      "botanical_name": "Ficus elastica",
+      "category": 3,
+      "description": "The Rubber Plant's bold, glossy leaves make a statement of strength and character in indoor spaces. Flourishing in Indirect Light and moist, well-drained soil, this plant adds a touch of natural beauty and vitality.",
+      "image": "rubber_plant.webp",
+      "size": "Medium",
+      "price": 17.99,
+      "discount_price": 8.99,
+      "rating": 4.90,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Ti Plant",
+      "botanical_name": "Cordyline fruticosa",
+      "category": 1,
+      "description": "The Ti Plant's vibrant, colorful leaves infuse indoor spaces with a burst of tropical energy and beauty. Flourishing in part sun to Indirect Light and loamy, sandy soil, this plant adds a touch of exotic charm.",
+      "image": "ti_plant.webp",
+      "size": "Small",
+      "price": 18.99,
+      "discount_price": 8.99,
+      "rating": 5.00,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Flamingo Flower",
+      "botanical_name": "Anthurium andraeanum",
+      "category": 2,
+      "description": "The Flamingo Flower's vibrant, heart-shaped blooms evoke feelings of passion and beauty in indoor spaces. Flourishing in Indirect Light and moist, well-drained soil, this plant adds a touch of romance and elegance.",
+      "image": "flamingo_flower.webp",
+      "size": "Medium",
+      "price": 21.99,
+      "discount_price": 8.99,
+      "rating": 5.00,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Buddhist Pine",
+      "botanical_name": "Podocarpus macrophyllus",
+      "category": 1,
+      "description": "The Buddhist Pine's slender, needle-like leaves exude an air of grace and elegance in indoor spaces. Flourishing in Bright Light to Indirect Light and rich, well-drained soil, this plant adds a touch of tranquility and natural beauty.",
+      "image": "buddhist_pine.webp",
+      "size": "Medium",
+      "price": 25.99,
+      "discount_price": 8.99,
+      "rating": 4.40,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Cape fuchsia Cherry Ripe",
+      "botanical_name": "Phygelius x rectus",
+      "category": 2,
+      "description": "The Cape Fuchsia Cherry Ripe's tubular blooms infuse indoor spaces with vibrant color and charm. Flourishing in Indirect Light to full shade and rich, moist soil, this plant adds a touch of playful beauty.",
+      "image": "cape_fuchsia.webp",
+      "size": "Large",
+      "price": 28.99,
+      "discount_price": 8.99,
+      "rating": 4.60,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Touch Me Not",
+      "botanical_name": "Mimosa pudica",
+      "category": 1,
+      "description": "The Touch Me Not's sensitive leaves respond to touch, bringing an element of curiosity and wonder to indoor spaces. Flourishing in Indirect Light to full shade and loamy, well-drained soil, this plant adds a touch of interactivity.",
+      "image": "touch_me_not.webp",
+      "size": "Small",
+      "price": 30.00,
+      "discount_price": 8.99,
+      "rating": 4.10,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Aloe vera",
+      "botanical_name": "Aloe vera",
+      "category": 4,
+      "description": "Aloe vera's succulent leaves house a soothing gel known for its healing properties, adding a touch of wellness to indoor spaces. Flourishing in indirect Light and sandy soil, this plant requires minimal watering.",
+      "image": "aloe_vera.webp",
+      "size": "Small",
+      "price": 24.00,
+      "discount_price": 8.99,
+      "rating": 4.10,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Low",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 23,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Lucky Bamboo",
+      "botanical_name": "Dracaena Braunii",
+      "category": 1,
+      "description": "Lucky Bamboo's graceful stalks and lush leaves symbolize luck and prosperity, adding a touch of elegance to indoor spaces. Flourishing in Indirect Light and moist, well-drained soil, this plant brings a sense of positive energy.",
+      "image": "lucky_bamboo.webp",
+      "size": "Medium",
+      "price": 33.00,
+      "discount_price": 8.99,
+      "rating": 4.60,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Sweet Alyssum",
+      "botanical_name": "Lobularia maritima",
+      "category": 2,
+      "description": "The Sweet Alyssum's delicate clusters of blooms exude a sweet fragrance, adding a touch of charm to indoor spaces. Flourishing in Bright Light to part sun and moist, well-drained soil, this plant infuses a sense of delight.",
+      "image": "sweet_alyssum.webp",
+      "size": "Large",
+      "price": 15.99,
+      "discount_price": 8.99,
+      "rating": 4.90,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Poinsettia",
+      "botanical_name": "Euphorbia pulcherrima",
+      "category": 2,
+      "description": "The Poinsettia's vibrant red bracts bring a festive touch to indoor spaces, especially during the holiday season. Flourishing in Bright Light to Indirect Light and loamy, well-drained soil, this plant adds a sense of celebration.",
+      "image": "poinsettia.webp",
+      "size": "Small",
+      "price": 19.99,
+      "discount_price": 8.99,
+      "rating": 4.00,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 26,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Lily of the Valley",
+      "botanical_name": "Convallaria majalis",
+      "category": 2,
+      "description": "The Lily of the Valley's dainty, bell-shaped blooms bring a sense of enchantment to indoor spaces. Flourishing in part sun to Indirect Light and rich, well-drained soil, this plant adds a touch of elegance and fragrance.",
+      "image": "lily_of_the_valley.webp",
+      "size": "Medium",
+      "price": 23.00,
+      "discount_price": 8.99,
+      "rating": 4.20,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 27,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Cape Jasmine",
+      "botanical_name": "Gardenia jasminoides",
+      "category": 2,
+      "description": "The Cape Jasmine's fragrant white blooms exude an aura of romance and beauty in indoor spaces. Flourishing in Bright Light to Indirect Light and rich, well-drained soil, this plant adds a touch of elegance and allure.",
+      "image": "cape_jasmine.webp",
+      "size": "Medium",
+      "price": 29.99,
+      "discount_price": 8.99,
+      "rating": 4.30,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 28,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Chrysanthemum",
+      "botanical_name": "Chrysanthemum morifolium",
+      "category": 2,
+      "description": "The Chrysanthemum's vibrant blooms come in a variety of colors, infusing indoor spaces with seasonal beauty. Flourishing in Bright Light and rich, moist soil, this plant adds a touch of cheer and celebration.",
+      "image": "chrysanthemum.webp",
+      "size": "Small",
+      "price": 27.99,
+      "discount_price": 8.99,
+      "rating": 4.40,
+      "preferred_light": "Bright Light",
+      "watering_needs": "Medium",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  },
+  {
+    "pk": 29,
+    "model": "products.product",
+    "fields": {
+      "sku": "",
+      "name": "Areca Palm",
+      "botanical_name": "Dypsis lutescens",
+      "category": 3,
+      "description": "The Areca Palm's feathery fronds create an oasis of tropical beauty and serenity in indoor spaces. Flourishing in Indirect Light and moist, well-drained soil, this palm adds a touch of natural elegance.",
+      "image": "areca_palm.webp",
+      "size": "Large",
+      "price": 38.99,
+      "discount_price": 8.99,
+      "rating": 4.20,
+      "preferred_light": "Indirect Light",
+      "watering_needs": "Low",
+      "toxic": "False",
+      "date": "2023-11-13"
+    }
+  }
+]

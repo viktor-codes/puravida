@@ -1,0 +1,37 @@
+[
+  {
+    "pk": 1,
+    "model": "products.category",
+    "fields": { "name": "foliage", "friendly_name": "Foliage Plant" }
+  },
+  {
+    "pk": 2,
+    "model": "products.category",
+    "fields": { "name": "flowering", "friendly_name": "Flowering Plant" }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": { "name": "air_purifying", "friendly_name": "Air Purifying Plant" }
+  },
+  {
+    "pk": 4,
+    "model": "products.category",
+    "fields": { "name": "succulents", "friendly_name": "Succulent Plant" }
+  },
+  {
+    "pk": 5,
+    "model": "products.category",
+    "fields": { "name": "cacti", "friendly_name": "Cacti & Cactus Plant" }
+  },
+  {
+    "pk": 6,
+    "model": "products.category",
+    "fields": { "name": "care", "friendly_name": "Plant Care" }
+  },
+  {
+    "pk": 7,
+    "model": "products.category",
+    "fields": { "name": "pots", "friendly_name": "Pots" }
+  }
+]
