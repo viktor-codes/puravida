@@ -40,7 +40,64 @@
 
 <body>
     <header class="container-fluid fixed-top px-0">
-
+        <div id="topnav" class=" d-flex justify-content-between align-items-center py-2">
+            <div class="col-2 d-lg-none">
+                <a class="btn btn-sm text-start no-hover" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-3"></i>
+                </a>
+            </div>
+            <div class="col-auto">
+                <a class="navbar-brand text-brand" id="logo" href="{% url 'home' %}">
+                    PURA <img src="{{ MEDIA_URL }}logo.png" alt="Logo"> VIDA
+                </a>
+            </div>
+            <div class="icons-menu col-auto text-end">
+                <ul class="list-inline list-unstyled me-lg-5 me-3 m-0">
+                    <li class="list-inline-item">
+                        <a class="text-black nav-link d-none d-sm-block" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasSearch" aria-controls="offcanvasTop">
+                            <div><i class="bi bi-search fs-4"></i></div>
+                        </a>
+                    </li>
+                    <li class="list-inline-item dropdown border-0">
+                        <a class=" nav-link d-none d-sm-block" href="#" id="user-options" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center p-1">
+                                <div><i class="bi bi-person-bounding-box fs-4"></i></div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a href="" class="dropdown-item">Product Management</a>
+                            {% endif %}
+                            <a href="" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="{% if grand_total %}text-dark font-weight-bold{% else %}text-black{% endif %} nav-link"
+                            href="">
+                            <div class="text-center p-1">
+                                <div class="position-relative"><i class="bi bi-basket fs-4"></i>
+                                    {% if bag_items %}
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                        {{ product_count }}
+                                    </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </header>
     {% if messages %}
     <div class="message-container"></div>
