@@ -20,10 +20,10 @@ def all_products(request):
             products = products.filter(category__id__lt=5)
 
         if 'under_10' in request.GET:
-            products = products.filter(category__id__lt=5, price__lt=10)
+            products = products.filter(price__lt=10)
 
         if 'under_20' in request.GET:
-            products = products.filter(category__id__lt=5, price__lt=20)
+            products = products.filter(price__lt=20)
 
         if 'sort' in request.GET:
             sortkey = request.GET['sort']

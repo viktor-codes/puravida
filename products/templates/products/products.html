@@ -53,7 +53,10 @@
                         </li>
                         <li class="list-inline-item">
                             <select id="sort-selector"
-                                class="form-select form-select-md border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                                class="form-select form-select-md border border-black">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
+                                    Sort by...
+                                </option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>
                                     Lowest Price
                                 </option>
@@ -73,30 +76,9 @@
                                     Name A-Z</option>
                                 <option value="name_desc" {% if current_sorting == 'friendly_name_desc' %}selected{% endif%}>
                                     Name Z-A</option>
-                                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif%}>Category
-                                    (A-Z)
-                                </option>
-                                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif%}>Category
-                                    (Z-A)
-                                </option>
                             </select>
                         </li>
                     </ul>
-                </div>
-                <div class="col-md-6 d-none d-sm-block">
-                    <nav aria-label="page-navigation">
-                        <ul class="pagination justify-content-end">
-                            <li class="page-item">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
             <div class="row">
@@ -154,9 +136,9 @@
         </div>
     </div>
 </div>
-<div class="btt-button shadow-sm rounded-0 border border-black">
+<div class="btt-button">
     <a class="btt-link d-flex h-100">
-        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        <i class="bi bi-box-arrow-in-up fs-2"></i>
     </a>
 </div>
 {% endblock %}
