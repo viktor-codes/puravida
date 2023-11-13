@@ -1,3 +1,7 @@
+ :root {
+     --bs-success: #35623e;
+ }
+
 body {
     background-color: #FFE167;
 }
