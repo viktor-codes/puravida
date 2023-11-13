@@ -30,23 +30,25 @@ class Product(models.Model):
     ]
     sku = models.CharField(max_length=255, null=True, blank=True)
     name = models.CharField(max_length=255)
-    botanical_name = models.CharField(max_length=255)
+    botanical_name = models.CharField(max_length=255, null=True, blank=True)
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL
     )
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    size = models.CharField(max_length=255)
+    size = models.CharField(max_length=255, null=True, blank=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     discount_price = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True
     )
     rating = models.DecimalField(max_digits=5, decimal_places=2)
     preferred_light = models.CharField(
-        max_length=20, choices=LIGHT_CHOICES, default='Indirect Light'
+        max_length=20, choices=LIGHT_CHOICES,
+        null=True, blank=True
     )
     watering_needs = models.CharField(
-        max_length=10, choices=WATERING_CHOICES, default='Medium'
+        max_length=10, choices=WATERING_CHOICES,
+        null=True, blank=True
     )
     toxic = models.BooleanField(default=False)
     date = models.DateField(null=True, blank=True)
