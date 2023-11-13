@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends "includes/base.html" %}
 {% load static %}
-{% load bag_tools %}
+
 
 {% block page_header %}
 <div class="container header-container">
@@ -83,7 +83,7 @@
                                 </td>
                                 <td class="py-3 align-middle">
                                     <strong>
-                                        <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
+                                        <p class="my-0"> €</p>
                                     </strong>
                                 </td>
                                 <td class="py-3 align-middle">
@@ -107,7 +107,7 @@
                         </div>
                         <div class="col">
                             <strong>
-                                <p class="text-end text-uppercase">${{ grand_total|floatformat:2 }} €</p>
+                                <p class="text-end text-uppercase">€</p>
                             </strong>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                                 <div class="progress-bar progress-bar-striped bg-success progress-bar-animated text-center"
                                     role="progressbar" aria-valuenow="{{ percentage }}" aria-valuemin="0"
                                     aria-valuemax="100"
-                                    style="width: {{ total|calc_percentage:free_delivery_threshold }}%;">
+                                    style="">
                                 </div>
                             </div>
                             <div class="text-start my-3">
@@ -181,14 +181,14 @@
 
 <script type="text/javascript">
     // Remove item and reload on click
-    $('.remove-item').click(function (e) {
+    €('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('size');
-        var url = `/bag/remove/${itemId}/`;
+        var itemId = €(this).attr('id').split('remove_')[1];
+        var size = €(this).data('size');
+        var url = `/bag/remove/€{itemId}/`;
         var data = { 'csrfmiddlewaretoken': csrfToken, 'size': size };
 
-        $.post(url, data)
+        €.post(url, data)
             .done(function () {
                 location.reload();
             });
