@@ -1,11 +1,11 @@
- body {
+body {
     background-color: #FFE167;
 }
 
 header {
     background-color: #f4f4f4;
 }
- 
+
 #logo {
     margin-top: -1rem;
 }
@@ -13,6 +13,11 @@ header {
 #logo img{
     border-radius: 50%;
     box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+
+#delivery-banner {
+    background-color: #35623e;
+    font-size: 0.5rem;
 }
 
  #home {
@@ -23,6 +28,128 @@ header {
     background-position: 80% 20%;
     clip-path: polygon(100% 0, 100% 100%, 52% 100%, 33% 75%, 8% 59%, 0 28%, 0 0);
  }
+
+.navbar .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    width: 0px;
+    height: 2px;
+    background-color: #35623e;
+    transition: all .6s ease;
+    transform-origin: center;
+}
+
+.navbar .nav-item:hover .nav-link::before {
+
+    width: 100%;
+}
+
+.navbar .nav-link {
+    position: relative;
+}
+
+
+.offcanvas {
+  bottom: initial;
+ }
+
+ .text-brand {
+    font-family: 'Spectral SC', serif;
+ }
+
+ .text-hero {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+ }
+
+ .nav-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #1A1222;
+ }
+
+ .shop-now-button {
+    background: #EA9803;
+    color: #1A1222;
+    width: 200px;
+    font-weight: 700;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background: #1A1222;
+    color: #f4f4f4;
+}
+
+.discount-button {
+    border: 1px solid #1A1222;
+    width: 200px;
+    font-weight: 700;
+}
+
+.discount-button:hover, .discount-button:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.discount-button {
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.discount-button:hover {
+  box-shadow: 0 0 40px 40px #35623e inset;
+}
+
+.no-hover:hover {
+    background-color: initial;
+    color: initial;
+    text-decoration: none;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #f4f4f4;
+    z-index: -1;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
 
  /* Large screen */
 @media only screen and (min-width: 992px) {
