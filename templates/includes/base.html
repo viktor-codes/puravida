@@ -57,7 +57,7 @@
                     <i class="bi bi-list fs-3"></i>
                 </a>
             </div>
-            <div class="col-auto">
+            <div class="col-auto me-3">
                 <a class="navbar-brand text-brand" id="logo" href="{% url 'home' %}">
                     PURA <img src="{{ MEDIA_URL }}logo.png" alt="Logo"> VIDA
                 </a>
@@ -120,7 +120,21 @@
         </div>
     </header>
     {% if messages %}
-    <div class="message-container"></div>
+    <div class="message-container">
+        {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
     
     {% block page_header %}
@@ -130,7 +144,11 @@
     {% endblock %}
     
     {% block postloadjs %}
-
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".toast").toast("show");
+            });
+        </script>
     {% endblock %}
 
     <!-- Offcanvas Search -->
