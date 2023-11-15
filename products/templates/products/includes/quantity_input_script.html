@@ -22,46 +22,66 @@
         handleEnableDisable(itemId);
     });
 
-    // Increment quantity
-    $('.increment-qty').click(function (e) {
-        e.preventDefault();
-        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-        var currentValue = parseInt($(closestInput).val());
-        $(closestInput).val(currentValue + 1);
-        var itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
-        $.ajax({
-            method: "POST",
-            url: `/bag/adjust/${itemId}/`,
-            data: {
-                'quantity': currentValue + 1, 
-                'csrfmiddlewaretoken': '{{ csrf_token }}'
-            },
-        })
-        .done(function () {
-                location.reload();
-            });
-    });
+        // Increment quantity product_details
+     $('.increment-product-qty').click(function (e) {
+            e.preventDefault();
+            var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+            var currentValue = parseInt($(closestInput).val());
+            $(closestInput).val(currentValue + 1);
+            var itemId = $(this).data('items_id');
+            handleEnableDisable(itemId);
+        });
 
-    // Decrement quantity
-    $('.decrement-qty').click(function (e) {
-        e.preventDefault();
-        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-        var currentValue = parseInt($(closestInput).val());
-        $(closestInput).val(currentValue - 1);
-        var itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
-        $.ajax({
-            method: "POST",
-            url: `/bag/adjust/${itemId}/`,
-            data: {
-                'quantity': currentValue - 1,
-                'csrfmiddlewaretoken': '{{ csrf_token }}'
-            },
-        })
-            .done(function () {
-                location.reload();
-            });
-    });
+        // Decrement quantity product_details
+        $('.decrement-product-qty').click(function (e) {
+            e.preventDefault();
+            var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+            var currentValue = parseInt($(closestInput).val());
+            $(closestInput).val(currentValue - 1);
+            var itemId = $(this).data('items_id');
+            handleEnableDisable(itemId);
+        });
 
-</script>
+        // Increment quantity bag
+        $('.increment-qty').click(function (e) {
+            e.preventDefault();
+            var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+            var currentValue = parseInt($(closestInput).val());
+            $(closestInput).val(currentValue + 1);
+            var itemId = $(this).data('item_id');
+            handleEnableDisable(itemId);
+            $.ajax({
+                method: "POST",
+                url: `/bag/adjust/${itemId}/`,
+                data: {
+                    'quantity': currentValue + 1,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+            })
+                .done(function () {
+                    location.reload();
+                });
+        });
+
+        // Decrement quantity bag
+        $('.decrement-qty').click(function (e) {
+            e.preventDefault();
+            var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+            var currentValue = parseInt($(closestInput).val());
+            $(closestInput).val(currentValue - 1);
+            var itemId = $(this).data('item_id');
+            handleEnableDisable(itemId);
+            $.ajax({
+                method: "POST",
+                url: `/bag/adjust/${itemId}/`,
+                data: {
+                    'quantity': currentValue - 1,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+            })
+                .done(function () {
+                    location.reload();
+                });
+        });
+
+    </script>

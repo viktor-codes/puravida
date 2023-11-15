@@ -84,7 +84,7 @@
                 </fieldset>
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-black px-2 w-auto">Shipping Address</legend>
-                    
+                    {{ order_form.country | as_crispy_field }}
                     <div class="row">
                         <div class="col-md-6">
                             {{ order_form.first_name | as_crispy_field }}
