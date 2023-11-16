@@ -1,5 +1,5 @@
 <script type="text/javascript">
-
+    
     // Disable +/- buttons outside 1-99 range
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
@@ -22,34 +22,16 @@
         handleEnableDisable(itemId);
     });
 
-        // Increment quantity product_details
-     $('.increment-product-qty').click(function (e) {
-            e.preventDefault();
-            var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-            var currentValue = parseInt($(closestInput).val());
-            $(closestInput).val(currentValue + 1);
-            var itemId = $(this).data('items_id');
-            handleEnableDisable(itemId);
-        });
-
-        // Decrement quantity product_details
-        $('.decrement-product-qty').click(function (e) {
-            e.preventDefault();
-            var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-            var currentValue = parseInt($(closestInput).val());
-            $(closestInput).val(currentValue - 1);
-            var itemId = $(this).data('items_id');
-            handleEnableDisable(itemId);
-        });
-
-        // Increment quantity bag
-        $('.increment-qty').click(function (e) {
-            e.preventDefault();
-            var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-            var currentValue = parseInt($(closestInput).val());
-            $(closestInput).val(currentValue + 1);
-            var itemId = $(this).data('item_id');
-            handleEnableDisable(itemId);
+    // Increment quantity bag
+    $('.increment-qty').click(function (e) {
+        e.preventDefault();
+        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        var currentValue = parseInt($(closestInput).val());
+        $(closestInput).val(currentValue + 1);
+        var itemId = $(this).data('item_id');
+        var reloadWithAjax = $(this).data('reload-ajax');
+        handleEnableDisable(itemId);
+        if (reloadWithAjax) {
             $.ajax({
                 method: "POST",
                 url: `/bag/adjust/${itemId}/`,
@@ -61,16 +43,20 @@
                 .done(function () {
                     location.reload();
                 });
-        });
+        }
+        
+    });
 
-        // Decrement quantity bag
-        $('.decrement-qty').click(function (e) {
-            e.preventDefault();
-            var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-            var currentValue = parseInt($(closestInput).val());
-            $(closestInput).val(currentValue - 1);
-            var itemId = $(this).data('item_id');
-            handleEnableDisable(itemId);
+    // Decrement quantity bag
+    $('.decrement-qty').click(function (e) {
+        e.preventDefault();
+        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        var currentValue = parseInt($(closestInput).val());
+        $(closestInput).val(currentValue - 1);
+        var itemId = $(this).data('item_id');
+        var reloadWithAjax = $(this).data('reload-ajax');
+        handleEnableDisable(itemId);
+        if (reloadWithAjax) {
             $.ajax({
                 method: "POST",
                 url: `/bag/adjust/${itemId}/`,
@@ -82,6 +68,8 @@
                 .done(function () {
                     location.reload();
                 });
-        });
+        }
+            
+    });
 
     </script>
