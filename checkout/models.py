@@ -7,10 +7,15 @@ from django.conf import settings
 from django_countries.fields import CountryField
 
 from products.models import Product
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='orders'
+    )
     first_name = models.CharField(
         max_length=50, null=False, blank=False, default='Andrew')
     last_name = models.CharField(
@@ -56,7 +61,7 @@ class Order(models.Model):
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
-    def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs) -> None:
         """
         Override the original save method to set the order number
         if it hasn't been set already.
@@ -65,7 +70,7 @@ class Order(models.Model):
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.order_number
 
 
