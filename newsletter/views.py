@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django_pandas.io import read_frame
 from .decorators import user_is_superuser
+from django.template.loader import render_to_string
 
 
 def subscribe(request):
@@ -13,6 +14,13 @@ def subscribe(request):
         email = request.POST.get('email', None)
         if form.is_valid():
             form.save()
+
+            # Send a welcome email to the new subscriber
+            subject = 'Welcome to Our Newsletter'
+            message = render_to_string(
+                'newsletter/coupone.txt', {'email': email})
+            send_mail(subject, message, '', [email], fail_silently=False)
+
             messages.success(
                 request, f'{email} email was successfully subscribed\
                       to our newsletter!')
