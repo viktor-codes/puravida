@@ -8,6 +8,9 @@ from django_countries.fields import CountryField
 
 from products.models import Product
 from profiles.models import UserProfile
+from decimal import Decimal
+from coupons.models import Coupon
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Order(models.Model):
@@ -36,6 +39,8 @@ class Order(models.Model):
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(
         max_length=254, null=False, blank=False, default='')
+    coupon = models.ForeignKey(Coupon, related_name='order', null=True, blank=True, on_delete=models.SET_NULL)
+    discount = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
 
     def _generate_order_number(self):
         """
@@ -48,7 +53,7 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        print("update order")
+
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))[
             'lineitem_total__sum'] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
@@ -57,8 +62,10 @@ class Order(models.Model):
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
+        if self.coupon:
+            self.discount = (self.coupon.discount / Decimal(100)) * self.grand_total
+            self.grand_total -= self.discount
         self.save()
-        print("update order done")
 
     def save(self, *args, **kwargs):
         """

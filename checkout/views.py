@@ -55,10 +55,13 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
-            pid = request.POST.get('client_secret').split('_secret')[0]
-            order.stripe_pid = pid
-            order.original_bag = json.dumps(bag)
-            order.save()
+            if 'coupon_id' in request.session:
+                order.coupon_id = request.session['coupon_id']
+                order.discount = request.session['discount']
+                pid = request.POST.get('client_secret').split('_secret')[0]
+                order.stripe_pid = pid
+                order.original_bag = json.dumps(bag)
+                order.save()
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -180,6 +183,12 @@ def checkout_success(request, order_number):
 
     if 'bag' in request.session:
         del request.session['bag']
+        
+    if 'coupon_id' in request.session:
+        del request.session['coupon_id']
+
+    if 'discount' in request.session:
+        del request.session['discount']
 
     template = 'checkout/checkout_success.html'
     context = {
