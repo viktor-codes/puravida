@@ -13,6 +13,14 @@ def subscribe(request):
         form = SubscibersForm(request.POST)
         email = request.POST.get('email', None)
         if form.is_valid():
+            # Check if the user is already subscribed
+            subscribe_user = Subscribers.objects.filter(
+                email=email).first()
+            if subscribe_user:
+                messages.warning(
+                    request, f"{email} email address is already subscribed.")
+                return redirect(request.META.get("HTTP_REFERER", "/"))
+
             form.save()
 
             # Send a welcome email to the new subscriber
@@ -23,10 +31,11 @@ def subscribe(request):
 
             messages.success(
                 request, f'{email} email was successfully subscribed\
-                      to our newsletter!')
-        return redirect(request.META.get("HTTP_REFERER", "/"))
+                    to our newsletter!')
+            return redirect(request.META.get("HTTP_REFERER", "/"))
     else:
         form = SubscibersForm()
+
     context = {
         'form': form,
     }

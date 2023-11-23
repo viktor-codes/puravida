@@ -128,7 +128,7 @@
                                         &nbsp;<img src="{{ MEDIA_URL }}delivery.png" alt="" style="width: 24px;">
                                     </div>
                                     <div class="col px-0">
-                                        <p class="fs-6">Only <strong>{{ free_delivery_delta }} €</strong> away from
+                                        <p class="fs-6">Only <strong>{{ free_delivery_delta|floatformat:2 }} €</strong> away from
                                             free shipping.</p>
                                     </div>
                                 </div>
@@ -142,15 +142,6 @@
                                     </div>
                                 </div>
                                 {% endif %}
-                                <p>Discount:-{{ discount|floatformat:2}}€</p>
-                                <p>Total: {{ new_total|floatformat:2 }}€</p>
-                                <form action="{% url 'coupons:apply' %}" method="POST">
-                                    {% csrf_token %}
-                                    {{ coupon_apply_form|crispy }}
-                                    <button type="submit" class="btn btn-outline-secondary rounded-0">
-                                        <span class="text-uppercase">Apply Coupon</span>
-                                    </button>
-                                </form>
                             </div>
                         </div>
                     </div>

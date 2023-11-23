@@ -11,6 +11,7 @@ from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
+from coupons.forms import CouponApplyForm
 
 import stripe
 import json
@@ -36,6 +37,7 @@ def cache_checkout_data(request) -> HttpResponse:
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    coupon_apply_form = CouponApplyForm()
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -55,13 +57,13 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
-            if 'coupon_id' in request.session:
-                order.coupon_id = request.session['coupon_id']
-                order.discount = request.session['discount']
-                pid = request.POST.get('client_secret').split('_secret')[0]
-                order.stripe_pid = pid
-                order.original_bag = json.dumps(bag)
-                order.save()
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            if 'coupon_code' in request.session:
+                coupon_code = request.session['coupon_code']
+                order.coupon_code = coupon_code
+            order.save()
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -144,6 +146,7 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        'coupon_apply_form': coupon_apply_form,
     }
 
     return render(request, template, context)
@@ -183,12 +186,9 @@ def checkout_success(request, order_number):
 
     if 'bag' in request.session:
         del request.session['bag']
-        
-    if 'coupon_id' in request.session:
-        del request.session['coupon_id']
 
-    if 'discount' in request.session:
-        del request.session['discount']
+    if 'coupon_code' in request.session:
+        del request.session['coupon_code']
 
     template = 'checkout/checkout_success.html'
     context = {

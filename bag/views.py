@@ -6,18 +6,11 @@ from django.shortcuts import (
     get_object_or_404,
 )
 from django.contrib import messages
-
 from products.models import Product
-from coupons.forms import CouponApplyForm
 
 
 def view_bag(request):
-    coupon_apply_form = CouponApplyForm()
-    context = {
-        'coupon_apply_form': coupon_apply_form,
-        'coupon_id': request.session.get('coupon_id'),
-    }
-    return render(request, 'bag/bag.html', context)
+    return render(request, 'bag/bag.html')
 
 
 def add_to_bag(request, item_id):

@@ -3,6 +3,21 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 from coupons.models import Coupon
+from coupons.forms import CouponApplyForm
+from coupons.views import coupon_apply
+
+
+def apply_coupon_discount(request, total):
+    coupon_code = request.session.get('coupon_code')
+    if coupon_code:
+        try:
+            coupon = Coupon.objects.get(code=coupon_code)
+            discount = (coupon.discount / Decimal(100)) * total
+            total -= discount
+            return total, discount
+        except Coupon.DoesNotExist:
+            request.session['coupon_code'] = None
+    return total, Decimal
 
 
 def bag_contents(request):
@@ -10,7 +25,6 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
-    coupon_applied = request.session.get('coupon_applied', False)
 
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
@@ -33,14 +47,7 @@ def bag_contents(request):
                     'product': product,
                     'size': size,
                 })
-
-    # if coupon_applied:
-    #     coupon_id = request.session.get('coupon_id')
-    #     coupon = get_object_or_404(Coupon, id=coupon_id)
-    #     discount = (coupon.discount / Decimal(100)) * total
-    # else:
-    #     discount = Decimal(0)
-
+    total, discount = apply_coupon_discount(request, total)
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
@@ -49,7 +56,6 @@ def bag_contents(request):
         free_delivery_delta = 0
 
     grand_total = total + delivery
-    # new_total = total - discount + delivery
 
     context = {
         'bag_items': bag_items,
@@ -59,8 +65,7 @@ def bag_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
-        # 'new_total': new_total,
-        # 'discount': discount,
+        'discount': discount,
     }
 
     return context

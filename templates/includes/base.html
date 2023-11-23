@@ -92,8 +92,7 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-dark font-weight-bold{% else %}text-black{% endif %} nav-link"
-                            href="{% url 'view_bag' %}">
+                        <a class="nav-link" href="{% url 'view_bag' %}">
                             <div class="text-center p-1">
                                 <div class="position-relative"><i class="bi bi-basket fs-4"></i>
                                     {% if bag_items %}

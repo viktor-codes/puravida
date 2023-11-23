@@ -4,6 +4,7 @@
 
 
 
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
@@ -18,76 +19,72 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">Checkout</h2>
-            <hr>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12 col-lg-6 order-lg-last mb-5">
-            <p class="text-muted">Order Summary ({{ product_count }})</p>
-            <div class="row">
-                <div class="col-7 offset-2">
-                    <p class="mb-1 mt-0 small text-muted">Item</p>
-                </div>
-                <div class="col-3 text-right">
-                    <p class="mb-1 mt-0 small text-muted">Subtotal</p>
-                </div>
-            </div>
+<div class="container mt-5">
+    <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-last mb-5">
             {% for item in bag_items %}
             <div class="row">
-                <div class="col-2 mb-1">
-                    <a href="{% url 'product_details' item.product.id %}">
+                <div class="col-2 my-2">
+                    <div class="card position-relative">
                         {% if item.product.image %}
                         <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.friendly_name }}">
                         {% else %}
                         <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}">
                         {% endif %}
-                    </a>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                            {{ item.quantity }}
+                        </span>
+                    </div>
                 </div>
                 <div class="col-7">
-                    <p class="my-0"><strong>{{ item.product.friendly_name }}</strong></p>
-                    <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A
-                        {% endif %}</p>
-                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                    <p class="my-0">{{ item.product.name }}</p>
+                    {% if item.product.botanical_name %}
+                    <p class="my-0 text-muted small">{{ item.product.botanical_name }}</p>
+                    {% else %}
+                    <p class="my-0 text-muted small">{{ item.product.category.friendly_name }}</p>
+                    {% endif %}
                 </div>
-                <div class="col-3 text-right">
-                    <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                <div class="col-3 text-end">
+                    <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                 </div>
             </div>
             {% endfor %}
-            <hr class="my-0">
-            <div class="row text-black text-right">
-                <div class="col-7 offset-2">
+            <form action="{% url 'coupons:apply' %}" method="POST" class="p-0 mt-2">
+                <div class="row p-0 gx-1">
+                    <div class="col-9 mt-2 text-start">
+                        {% csrf_token %}
+                        {{ coupon_apply_form|crispy }}
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-success w-100 mt-2">Apply</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row mt-2">
+                <div class="col-8 ">
                     <p class="my-0">Order Total:</p>
                     <p class="my-0">Delivery:</p>
+                    <p class="my-0">Discount:</p>
                     <p class="my-0">Grand Total:</p>
-                    <p class="my-0">DISCOUNT:</p>
-                    <p class="my-0">To PAY:</p>
                 </div>
-                <div class="col-3">
+                <div class="col-4 text-end">
                     <p class="my-0">€{{ total | floatformat:2 }}</p>
                     <p class="my-0">€{{ delivery | floatformat:2 }}</p>
+                    <p class="my-0">€{{ discount | floatformat:2 }}</p>
                     <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
-                    <p>{{ discount | floatformat:2 }}</p>
-                    <p>{{ new_total | floatformat:2 }}</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-6">
-            <p class="text-muted">Please fill out the form below to complete your order</p>
+        <div class="col-md-7 col-lg-8">
+            <p class="text-center">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
-                <fieldset class="rounded px-3 mb-3">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Contact</legend>
+                <fieldset class="px-3 mb-3">
+                    <legend class="fieldset-label small fw-bold px-2 w-auto">Contact Details</legend>
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
-                <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Shipping Address</legend>
+                <fieldset class="px-3 mb-5">
+                    <legend class="fieldset-label small fw-bold px-2 w-auto">Shipping Address</legend>
                     {{ order_form.country | as_crispy_field }}
                     <div class="row">
                         <div class="col-md-6">
@@ -126,24 +123,24 @@
                     </div>
                 </fieldset>
                 <fieldset class="px-3">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                    <legend class="fieldset-label small fw-bold px-2 w-auto">Payment</legend>
                     <!-- A Stripe card element will go here -->
                     <div class="mb-3" id="card-element"></div>
-
+    
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     <!-- Pass the client secret to the view so we can get the payment intent id -->
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
-
+    
                 <div class="submit-button text-end mt-5 mb-2">
-                    <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
+                    <a href="{% url 'view_bag' %}" class="btn btn-outline-black 0">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold">Adjust Bag</span>
                     </a>
-                    <button id="submit-button" class="btn btn-black rounded-0">
+                    <button id="submit-button" class="btn btn-black 0">
                         <span class="font-weight-bold">Complete Order</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
@@ -160,6 +157,7 @@
         </div>
     </div>
 </div>
+
 <div id="loading-overlay">
     <h1 class="text-light logo-font loading-spinner">
         <span class="icon">
