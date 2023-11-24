@@ -17,37 +17,27 @@
     <div class="container">
         <div class="row justify justify-content-center">
             <div class="col-12 col-lg-9 col-xl-8">
-                <div class="card">
-                    <div class="row justify-content-center">
-                        <div class="col-md-9 col-11">
-                            <div class="row mt-0">
-                                <div class="col-md-12">
-                                    <h4 class="text-center heading">get 10% off</h4>
-                                    <p class="text-center sub-heading">subscribe to our newsletter & receive a coupon
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-3">
-                                <div class="col-md-12 mb-0">
-                                    <form method="POST" action="{% url 'subscribe' %}" class="">
-                                        {% csrf_token %}
-                                        {{ form|crispy }}
-                                        <div class="form-group row justify-content-center mb-0">
-                                            <div class="col-md-12 px-3">
-                                                <input type="submit" value="GET IT NOW!"
-                                                    class="btn btn-block btn-black rm-border">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row justify-content-center mb-0">
-                                            <div class="col-md-12 px-3">
-                                                <p class="conditions">* $50 minimum purchase</p>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                <div class="card m-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="text-center mt-3">Become a plant person get 20% off</h4>
+                                <p class="text-center sub-heading">
+                                    subscribe to our newsletter & receive a discount coupon
+                                </p>
                             </div>
                         </div>
+                        <form method="POST" action="{% url 'subscribe' %}" class="">
+                            <div class="row gx-1">
+                                <div class="col-9">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                </div>
+                                <div class="col-3">
+                                    <input type="submit" value="GET IT!" class="btn btn-outline-success">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

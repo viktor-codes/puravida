@@ -12,6 +12,7 @@ from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
 from coupons.forms import CouponApplyForm
+from coupons.models import Coupon
 
 import stripe
 import json
@@ -57,13 +58,22 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
-            pid = request.POST.get('client_secret').split('_secret')[0]
-            order.stripe_pid = pid
-            order.original_bag = json.dumps(bag)
             if 'coupon_code' in request.session:
                 coupon_code = request.session['coupon_code']
-                order.coupon_code = coupon_code
-            order.save()
+                try:
+                    coupon = Coupon.objects.get(code=coupon_code)
+                    order.coupon = coupon
+                except Coupon.DoesNotExist:
+                    messages.error(
+                        request, 'Invalid coupon code. Please try again.')
+                    return redirect(reverse('checkout'))
+                pid = request.POST.get('client_secret').split('_secret')[0]
+                order.stripe_pid = pid
+                order.original_bag = json.dumps(bag)
+                order.save()
+                order.update_total()
+            else:
+                order.save()
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -189,6 +199,9 @@ def checkout_success(request, order_number):
 
     if 'coupon_code' in request.session:
         del request.session['coupon_code']
+
+    if 'discount' in request.session:
+        del request.session['discount']
 
     template = 'checkout/checkout_success.html'
     context = {

@@ -3,8 +3,6 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 from coupons.models import Coupon
-from coupons.forms import CouponApplyForm
-from coupons.views import coupon_apply
 
 
 def apply_coupon_discount(request, total):
@@ -17,7 +15,7 @@ def apply_coupon_discount(request, total):
             return total, discount
         except Coupon.DoesNotExist:
             request.session['coupon_code'] = None
-    return total, Decimal
+    return total, Decimal(0)
 
 
 def bag_contents(request):
@@ -47,7 +45,9 @@ def bag_contents(request):
                     'product': product,
                     'size': size,
                 })
+
     total, discount = apply_coupon_discount(request, total)
+
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
@@ -55,7 +55,7 @@ def bag_contents(request):
         delivery = 0
         free_delivery_delta = 0
 
-    grand_total = total + delivery
+    grand_total = delivery + total
 
     context = {
         'bag_items': bag_items,

@@ -24,7 +24,8 @@ def coupon_apply(request):
                 is_active = coupon.active if coupon else False
                 if is_available and is_active:
                     request.session['coupon_code'] = code
-                    messages.success(request, 'Your coupon was applied!')
+                    messages.info(
+                        request, 'Your coupon was successfully applied!')
                 else:
                     messages.error(request, 'Your coupon is invalid!')
             except Coupon.DoesNotExist:
