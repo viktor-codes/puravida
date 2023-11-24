@@ -455,7 +455,7 @@
       "rating": 4.60,
       "preferred_light": "Indirect Light",
       "watering_needs": "Medium",
-      "toxic": "False",
+      "toxic": "True",
       "date": "2023-11-13"
     }
   },
@@ -495,7 +495,7 @@
       "rating": 4.00,
       "preferred_light": "Bright Light",
       "watering_needs": "Medium",
-      "toxic": "False",
+      "toxic": "True",
       "date": "2023-11-13"
     }
   },
@@ -535,7 +535,7 @@
       "rating": 4.30,
       "preferred_light": "Bright Light",
       "watering_needs": "Medium",
-      "toxic": "False",
+      "toxic": "True",
       "date": "2023-11-13"
     }
   },

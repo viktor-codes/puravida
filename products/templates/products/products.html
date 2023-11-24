@@ -13,25 +13,86 @@
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row mt-3">
-        <div class="col-lg-3">
-            <h2 class="text-start">Categories</h2>
-            <ul class="list-unstyled templatemo-accordion">
-                <li class="pb-3">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            product BY TYPE
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Foliage product</a></li>
-                            <li><a class="dropdown-item" href="#">Flowering products</a></li>
-                            <li><a class="dropdown-item" href="#">Air prifying products</a></li>
-                            <li><a class="dropdown-item" href="#">Succulent products</a></li>
-                            <li><a class="dropdown-item" href="#">Cacti & Cactus product</a></li>
-                        </ul>
+        <div class="col-lg-3 filter-wrapper">
+            <div class="wrapper bg-success rounded shadow">
+                <div class="accordion accordion-flush" id="myAccordion ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                aria-expanded="false" aria-controls="flush-collapseOne"> BY CATEGORY </button> </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse border-0"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+                            <div class="accordion-body p-0">
+                                <ul class="list-unstyled m-0">
+                                    <li>
+                                        <a href="{% url 'products' %}?category=foliage">Foliage Plants</a>
+                                        <a href="{% url 'products' %}?category=flowering" class="dropdown-item ">Flowering
+                                            Plants</a>
+                                        <a href="{% url 'products' %}?category=air_purifying" class="dropdown-item">Air
+                                            Purifying Plants</a>
+                                        <a href="{% url 'products' %}?category=succulents" class="dropdown-item">Succulent
+                                            Plants</a>
+                                        <a href="{% url 'products' %}?category=cacti" class="dropdown-item ">Cacti & Cactus
+                                            Plant</a>
+                                        <a href="{% url 'products' %}?category=pots" class="dropdown-item">Pots</a>
+                                        <a href="{% url 'products' %}?category=care" class="dropdown-item">Plant Care Tools</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </li>
-            </ul>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                aria-expanded="false" aria-controls="flush-collapseTwo"> BY WATERING </button> </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse border-0"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+                            <div class="accordion-body p-0">
+                                <ul class="list-unstyled m-0">
+                                    <li>
+                                        <a href="{% url 'products' %}?water=High">Hight</a>
+                                        <a href="{% url 'products' %}?water=Medium">Medium</a>
+                                        <a href="{% url 'products' %}?water=Low">Low</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                aria-expanded="false" aria-controls="flush-collapseThree"> BY LIGHTNING </button> </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse border-0"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+                            <div class="accordion-body p-0">
+                                <ul class="list-unstyled m-0">
+                                    <li>
+                                        <a href="{% url 'products' %}?light=Bright Light">Bright Light</a>
+                                        <a href="{% url 'products' %}?light=Indirect Light">Indirect Light</a>
+                                        <a href="{% url 'products' %}?light=Low Light">Low Light</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour"
+                                aria-expanded="false" aria-controls="flush-collapseFour"> BY TOXIC </button> </h2>
+                        <div id="flush-collapseFour" class="accordion-collapse collapse border-0"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+                            <div class="accordion-body p-0">
+                                <ul class="list-unstyled m-0">
+                                    <li>
+                                        <a href="{% url 'products' %}?plants&toxic=True">Toxic</a>
+                                        <a href="{% url 'products' %}?plants&toxic=False">Non Toxic</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-lg-9">
             <div class="row mb-3">
@@ -44,6 +105,18 @@
                     <span class="badge rounded-pill bg-secondary">{{ c.friendly_name}}</span>
                 </a>
                 {% endfor %}
+                <div class="row mb-3">
+                    <div class="d-flex">
+                        {% for filter_type, filter_value in request.GET.items %}
+                        <div class="me-2">
+                            <a href="#">
+                                <span class="badge rounded-pill bg-warning">{{ filter_type }}</span>
+                                <span class="badge rounded-pill bg-secondary">{{ filter_value }}</span>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-6">

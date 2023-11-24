@@ -21,7 +21,7 @@
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                 <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop
                     Now</a>
-                <a href="" class="discount-button btn btn-lg rounded-0 text-uppercase py-3"><span>get 20%
+                <a href="#newsletter" class="discount-button btn btn-lg rounded-0 text-uppercase py-3"><span>get 20%
                         off</span></a>
             </div>
         </div>
@@ -29,5 +29,97 @@
 </section>
 <section id="newsletter">
     {% include 'newsletter/newsletter.html' %}
+</section>
+<section id="faq">
+    <div class="wrapper bg-white rounded shadow">
+        <div class="h2 text-center fw-bold">FAQ</div>
+        <div class="accordion accordion-flush border-top border-start border-end" id="myAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                        aria-controls="flush-collapseOne"> How do I care for my indoor plants? </button> </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#myAccordion">
+                    <div class="accordion-body p-0">
+                        <ul class="list-unstyled m-0">
+                            <li><p>Each plant has specific care requirements, but in general, ensure they have the right amount of light, water, and
+                            humidity. Check the care instructions provided with each plant or reach out to our customer support for guidance.</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                        aria-controls="flush-collapseTwo"> What kind of indoor plants do you offer? </button> </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#myAccordion">
+                    <div class="accordion-body p-0">
+                        <ul class="list-unstyled m-0">
+                            <li><p>We offer a wide variety of indoor plants, including tropical, succulents, air purifiers, and low-maintenance options.
+                            Browse our catalog to discover the perfect plant for your space.</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                        aria-controls="flush-collapseThree"> How often should I water my indoor plants? </button> </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse border-0"
+                    aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+                    <div class="accordion-body p-0">
+                        <ul class="list-unstyled m-0">
+                            <li><p>The watering frequency varies depending on the type of plant, the size of the pot, and the environmental conditions.
+                            Typically, it's best to allow the top inch of soil to dry out before watering. Consult the care instructions for each
+                            plant on our website for specific guidance.</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false"
+                        aria-controls="flush-collapseFour"> Do you offer plant care tips and advice? </button> </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#myAccordion">
+                    <div class="accordion-body p-0">
+                        <ul class="list-unstyled m-0">
+                            <li><p>Yes, we provide detailed care instructions with each plant purchase. Additionally, you can find a wealth of plant care
+                            tips and resources on our blog and social media channels.</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false"
+                        aria-controls="flush-collapseFive"> How can I contact your customer support team? </button> </h2>
+                <div id="flush-collapseFive" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#myAccordion">
+                    <div class="accordion-body p-0">
+                        <ul class="list-unstyled m-0">
+                            <li><p>You can reach our customer support team through our Contact Us page, or send an email to support@yourplantshop.com.
+                            We're here to assist you with any questions or concerns you may have.</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false"
+                        aria-controls="flush-collapseSix"> Are your plants pet-friendly? </button> </h2>
+                <div id="flush-collapseSix" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#myAccordion">
+                    <div class="accordion-body p-0">
+                        <ul class="list-unstyled m-0">
+                            <li><p>Some of our plants are considered pet-friendly, while others may be toxic to pets. Please check the individual product
+                            descriptions for information about the plant's safety around pets.</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}

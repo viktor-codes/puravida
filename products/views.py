@@ -62,6 +62,21 @@ def all_products(request):
             )
             products = products.filter(queries)
 
+        if 'water' in request.GET:
+            watering_level = request.GET['water']
+            products = products.filter(watering_needs=watering_level)
+
+        if 'light' in request.GET:
+            light_level = request.GET['light']
+            products = products.filter(preferred_light=light_level)
+
+        if 'toxic' in request.GET:
+            toxic_filter = request.GET['toxic']
+            if toxic_filter.lower() == 'true':
+                products = products.filter(toxic=True)
+            elif toxic_filter.lower() == 'false':
+                products = products.filter(toxic=False)
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
