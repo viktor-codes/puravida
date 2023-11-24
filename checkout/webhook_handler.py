@@ -59,6 +59,8 @@ class StripeWH_Handler:
         shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2)
 
+        full_name = shipping_details.name
+
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
             if value == "":
@@ -83,8 +85,8 @@ class StripeWH_Handler:
         while attempt <= 5:
             try:
                 order = Order.objects.get(
-                    first_name__iexact=shipping_details.name[0],
-                    last_name__iexact=shipping_details.name[1],
+                    first_name__iexact=full_name.split()[0],
+                    last_name__iexact=full_name.split()[1],
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
@@ -111,8 +113,7 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
-                    first_name=shipping_details.name[0],
-                    last_name=shipping_details.name[1],
+                    full_name=shipping_details.name,
                     user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
