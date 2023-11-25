@@ -27,4 +27,7 @@ textarea[name="message"] {
   max-width:600px;
   margin:0 auto
 }
+
+.bg-green {
+  background-color: #35623e
 }

@@ -100,11 +100,6 @@
                     Products listed: <strong>{{ products|length }}</strong> {% if search_term %} found for
                     <strong>"{{search_term}}"</strong>{%endif%}
                 </p>
-                {% for c in current_categories %}
-                <a class="" href="{% url 'products' %}?category={{ c.name }}">
-                    <span class="badge rounded-pill bg-secondary">{{ c.friendly_name}}</span>
-                </a>
-                {% endfor %}
                 <div class="row mb-3">
                     <div class="d-flex">
                         {% for filter_type, filter_value in request.GET.items %}

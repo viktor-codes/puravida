@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Product, Category
 from .forms import ProductForm
+from reviews.models import ProductReview
+from reviews.forms import ProductReviewForm
 
 
 def all_products(request):
@@ -93,9 +95,25 @@ def product_details(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = ProductReview.objects.filter(product=product)
+
+    if request.method == 'POST':
+        review_form = ProductReviewForm(request.POST)
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.product = product
+            review.user = request.user
+            review.save()
+
+            return redirect(reverse('product_details', args=[product.id]))
+
+    else:
+        review_form = ProductReviewForm()
 
     context = {
         'product': product,
+        'reviews': reviews,
+        'review_form': review_form,
     }
 
     return render(request, 'products/product_details.html', context)

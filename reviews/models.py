@@ -24,7 +24,7 @@ class ProductReview(models.Model):
         verbose_name_plural = "Product Reviews"
 
     def __str__(self):
-        return self.product.title
+        return self.product.name
 
     def get_rating(self):
         return self.rating

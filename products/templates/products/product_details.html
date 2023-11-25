@@ -87,6 +87,67 @@
         </div>
     </div>
 </div>
+{% if reviews %}
+<div class="container">
+    <div class="row">
+        <div class="{% if request.user.is_authenticated %}col-lg-8{% else %}col-lg-12{% endif %} text-center">
+            <h4 class="mb-3">Customer's reviews</h4>
+            <div class="">
+                {% for r in reviews %}
+                <div class="card justify-content-between d-flex mb-3 p-3">
+                    <div class="justify-content-between d-flex">
+                        <div class="thumb text-center">
+                            <img src="{{ MEDIA_URL }}profile.jpg"
+                                style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                            <h5>{{r.user.username|title}}</h5>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="d-flex align-items-center">
+                                    <span class="font-xs text-muted">{{r.date|date:"d M, Y"}} </span>
+                                </div>
+                                <div>
+                                    {% for star in r.rating|ljust:r.rating %}
+                                    <i class="fas fa-star text-warning"></i>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div>
+                                <p class="mb-1">{{ r.review}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="col-lg-4 text-center">
+            <h4 class="mb-3">Add a review</h4>
+            <div class="card">
+                <form class="form-control" action="" id="commentForm" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12 p-3">
+                            <div class="form-group">
+                                {{review_form.review}}
+                            </div>
+                        </div>
+                        <div class="text-start mb-3">
+                            <p class="m-0">Rating:</p>
+                            {{review_form.rating}}
+                        </div>
+                        <div class="container">
+                            <button type="submit" class="btn btn-success">Submit Review</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
