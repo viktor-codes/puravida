@@ -22,12 +22,12 @@
                     <table class="table table-borderless w-100">
                         <thead class="">
                             <tr class="">
-                                <th class="text-left">&nbsp;</th>
-                                <th class="text-left">Product</th>
-                                <th class="text-left">Price</th>
-                                <th class="text-left ps-4">Quantity</th>
-                                <th class="text-left">Total</th>
-                                <th class="text-left"></th>
+                                <th class="text-start">&nbsp;</th>
+                                <th class="text-start">Product</th>
+                                <th class="text-start">Price</th>
+                                <th class="text-start ps-4">Quantity</th>
+                                <th class="text-start">Total</th>
+                                <th class="text-start"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,7 +50,7 @@
                                         <p class="my-0">{{ item.product.price }} €</p>
                                     </strong>
                                 </td>
-                                <td class="py-3 align-middle">
+                                <td class="py-3 align-middle quantity-input">
                                     <form class="form update-form" method="POST"
                                         action="{% url 'adjust_bag' item.item_id %}">
                                         {% csrf_token %}

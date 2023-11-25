@@ -176,6 +176,10 @@ input[type=number]{
     right: 45px;
 }
 
+.quantity-input {
+    min-width: 150px;
+}
+
 /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
