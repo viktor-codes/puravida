@@ -104,7 +104,7 @@ def product_details(request, product_id):
             review.product = product
             review.user = request.user
             review.save()
-
+            messages.success(request, 'Successfully added your review!')
             return redirect(reverse('product_details', args=[product.id]))
 
     else:

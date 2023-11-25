@@ -1,0 +1,255 @@
+{% extends "includes/base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-lg-3 filter-wrapper">
+            <div class="wrapper bg-success rounded shadow">
+                <div class="accordion accordion-flush" id="myAccordion ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne"> <button
+                                class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne"> BY CATEGORY </button> </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse border-0"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+                            <div class="accordion-body p-0">
+                                <ul class="list-unstyled m-0">
+                                    <li>
+                                        <a href="{% url 'products' %}?category=foliage">Foliage Plants</a>
+                                        <a href="{% url 'products' %}?category=flowering"
+                                            class="dropdown-item ">Flowering
+                                            Plants</a>
+                                        <a href="{% url 'products' %}?category=air_purifying" class="dropdown-item">Air
+                                            Purifying Plants</a>
+                                        <a href="{% url 'products' %}?category=succulents"
+                                            class="dropdown-item">Succulent
+                                            Plants</a>
+                                        <a href="{% url 'products' %}?category=cacti" class="dropdown-item ">Cacti &
+                                            Cactus
+                                            Plant</a>
+                                        <a href="{% url 'products' %}?category=pots" class="dropdown-item">Pots</a>
+                                        <a href="{% url 'products' %}?category=care" class="dropdown-item">Plant Care
+                                            Tools</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne"> <button
+                                class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo"> BY WATERING </button> </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse border-0"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+                            <div class="accordion-body p-0">
+                                <ul class="list-unstyled m-0">
+                                    <li>
+                                        <a href="{% url 'products' %}?water=High">Hight</a>
+                                        <a href="{% url 'products' %}?water=Medium">Medium</a>
+                                        <a href="{% url 'products' %}?water=Low">Low</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne"> <button
+                                class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree"> BY LIGHTNING </button> </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse border-0"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+                            <div class="accordion-body p-0">
+                                <ul class="list-unstyled m-0">
+                                    <li>
+                                        <a href="{% url 'products' %}?light=Bright Light">Bright Light</a>
+                                        <a href="{% url 'products' %}?light=Indirect Light">Indirect Light</a>
+                                        <a href="{% url 'products' %}?light=Low Light">Low Light</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne"> <button
+                                class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                aria-controls="flush-collapseFour"> BY TOXIC </button> </h2>
+                        <div id="flush-collapseFour" class="accordion-collapse collapse border-0"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+                            <div class="accordion-body p-0">
+                                <ul class="list-unstyled m-0">
+                                    <li>
+                                        <a href="{% url 'products' %}?plants&toxic=True">Toxic</a>
+                                        <a href="{% url 'products' %}?plants&toxic=False">Non Toxic</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="row mb-3">
+                <p class="ms-auto mt-3">
+                    Products listed: <strong>{{ products|length }}</strong> {% if search_term %} found for
+                    <strong>"{{search_term}}"</strong>{%endif%}
+                </p>
+                <div class="row mb-3">
+                    <div class="d-flex">
+                        {% for filter_type, filter_value in request.GET.items %}
+                        <div class="me-2">
+                            <a href="#">
+                                <span class="badge rounded-pill bg-warning">{{ filter_type }}</span>
+                                <span class="badge rounded-pill bg-secondary">{{ filter_value }}</span>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-inline list-unstyled">
+                        <li class="list-inline-item">
+                            <p>Sort products by</p>
+                        </li>
+                        <li class="list-inline-item">
+                            <select id="sort-selector" class="form-select form-select-md border border-black">
+                                <option value="reset" {% if current_sorting=='None_None' %}selected{% endif %}>
+                                    Sort by...
+                                </option>
+                                <option value="price_asc" {% if current_sorting=='price_asc' %}selected{% endif %}>
+                                    Lowest Price
+                                </option>
+                                <option value="price_desc" {% if current_sorting=='price_desc' %}selected{% endif %}>
+                                    Highest Price
+                                </option>
+                                <option value="rating_asc" {% if current_sorting=='rating_asc' %}selected{% endif %}>
+                                    Rating (low to
+                                    high)
+                                </option>
+                                <option value="rating_desc" {% if current_sorting=='rating_desc' %}selected{% endif %}>
+                                    Rating (high
+                                    to
+                                    low)
+                                </option>
+                                <option value="name_asc" {% if current_sorting=='friendly_name_asc' %}selected{%
+                                    endif%}>
+                                    Name A-Z</option>
+                                <option value="name_desc" {% if current_sorting=='friendly_name_desc' %}selected{%
+                                    endif%}>
+                                    Name Z-A</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="product-container col-11">
+                    <div class="row mt-2 mb-2">
+                        {% for product in products %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
+                            <div class="card h-100 border-0">
+                                {% if product.image %}
+                                <a href="{% url 'product_details' product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}"
+                                        alt="{{ product.name }}">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'product_details' product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                        alt="{{ product.name }}">
+                                </a>
+                                {% endif %}
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ product.name }}</p>
+                                    <p class="text-muted mb-0">{{ product.botanical_name }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }}</p>
+
+                                            {% if product.rating %}
+                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating
+                                                }}
+                                                /
+                                                5</small>
+                                            {% else %}
+                                            <small class="text-muted">No Rating</small>
+                                            {% endif %}
+                                            {% if request.user.is_superuser %}
+                                            <small class="ml-3">
+                                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                                <a class="text-danger"
+                                                    href="{% url 'delete_product' product.id %}">Delete</a>
+                                            </small>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btt-button">
+    <a class="btt-link d-flex h-100">
+        <i class="bi bi-box-arrow-in-up fs-2"></i>
+    </a>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
+
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
+
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
+{% endblock %}

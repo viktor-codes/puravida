@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'newsletter',
     'coupons',
     'reviews',
+    'wishlist',
 
 ]
 

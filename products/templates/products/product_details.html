@@ -87,11 +87,12 @@
         </div>
     </div>
 </div>
-{% if reviews %}
+
 <div class="container">
     <div class="row">
         <div class="{% if request.user.is_authenticated %}col-lg-8{% else %}col-lg-12{% endif %} text-center">
             <h4 class="mb-3">Customer's reviews</h4>
+            {% if reviews %}
             <div class="">
                 {% for r in reviews %}
                 <div class="card justify-content-between d-flex mb-3 p-3">
@@ -120,6 +121,9 @@
                 </div>
                 {% endfor %}
             </div>
+            {% else %}
+            <p class="text-muted">No reviews yet</p>
+            {% endif %}
         </div>
         {% if request.user.is_authenticated %}
         <div class="col-lg-4 text-center">
@@ -147,7 +151,7 @@
         {% endif %}
     </div>
 </div>
-{% endif %}
+
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
