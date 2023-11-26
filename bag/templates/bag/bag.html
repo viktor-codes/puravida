@@ -103,7 +103,10 @@
                 <div class="px-4 py-3 mt-2 h-75">
                     <div class="row ">
                         <div class="col">
-                            <p class="text-start text-uppercase">Subtotal</p>
+                            <p class="text-start text-uppercase mb-0">Subtotal</p>
+                            {% if delivery %}
+                            <p class="text-start text-small text-muted m-0">delivery: {{delivery|floatformat:2 }}€</p>
+                            {% endif %}
                         </div>
                         <div class="col">
                             <strong>

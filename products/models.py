@@ -55,3 +55,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def calculate_sale_percentage(self):
+        if self.discount_price is not None and self.price is not None and self.price > 0:
+            # Calculate the sale percentage
+            sale_percentage = (
+                (self.price - self.discount_price) / self.price) * 100
+            return round(sale_percentage, 2)
+        else:
+            return 0.0

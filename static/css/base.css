@@ -225,9 +225,7 @@ input[type=number]{
     overflow-y: auto;
 }
 
-.wishlist-icon {
-    color: #35623e;
-}
+
 
 /* Small Screen */
 @media only screen and (max-width: 991px){
@@ -469,3 +467,73 @@ input[type=number]{
         width: 90% !important
     }
 }
+
+.product-card {
+
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    width: 225px;
+
+
+}
+
+.image-container {
+    position: relative;
+    height: 225px;
+    width: 225px;
+}
+
+.thumbnail-image {
+    border-radius: 10px !important;
+}
+
+
+.discount {
+
+    background-color: red;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 12px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.wishlist {
+
+    height: 27px;
+    width: 27px;
+    color: #35623e;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.first {
+
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+}
+
+.new-price {
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+
+}
+
+.old-price {
+    font-size: 8px;
+    font-weight: bold;
+    color: grey;
+}
+
+
+
+
