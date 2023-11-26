@@ -15,84 +15,93 @@
     <div class="row mt-3">
         <div class="col-lg-3 filter-wrapper">
             <div class="wrapper custom-success-bg rounded shadow">
-                <div class="accordion accordion-flush" id="myAccordion ">
+                <h3 class="text-warning text-center">Filter:</h3>
+                <div class="accordion accordion-flush rounded-5" id="myAccordion ">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                aria-expanded="false" aria-controls="flush-collapseOne"> BY CATEGORY </button> </h2>
+                        <h2 class="accordion-header" id="flush-headingOne"> <button
+                                class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne"><i class="bi bi-tags fs-4"></i>&nbsp; BY CATEGORY </button> </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse border-0"
                             aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
-                            <div class="accordion-body p-0">
+                            <div class="accordion-body bg-light text-center p-0">
                                 <ul class="list-unstyled m-0">
                                     <li>
                                         <a href="{% url 'products' %}?category=foliage">Foliage Plants</a>
-                                        <a href="{% url 'products' %}?category=flowering" class="dropdown-item ">Flowering
+                                        <a href="{% url 'products' %}?category=flowering"
+                                            class="btn">Flowering
                                             Plants</a>
-                                        <a href="{% url 'products' %}?category=air_purifying" class="dropdown-item">Air
+                                        <a href="{% url 'products' %}?category=air_purifying" class="btn">Air
                                             Purifying Plants</a>
-                                        <a href="{% url 'products' %}?category=succulents" class="dropdown-item">Succulent
+                                        <a href="{% url 'products' %}?category=succulents"
+                                            class="btn">Succulent
                                             Plants</a>
-                                        <a href="{% url 'products' %}?category=cacti" class="dropdown-item ">Cacti & Cactus
+                                        <a href="{% url 'products' %}?category=cacti" class="btn">Cacti &
+                                            Cactus
                                             Plant</a>
-                                        <a href="{% url 'products' %}?category=pots" class="dropdown-item">Pots</a>
-                                        <a href="{% url 'products' %}?category=care" class="dropdown-item">Plant Care Tools</a>
+                                        <a href="{% url 'products' %}?category=pots" class="btn">Pots</a>
+                                        <a href="{% url 'products' %}?category=care" class="btn">Plant Care
+                                            Tools</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                aria-expanded="false" aria-controls="flush-collapseTwo"> BY WATERING </button> </h2>
+                        <h2 class="accordion-header" id="flush-headingOne"> <button
+                                class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo"><i class="bi bi-droplet-half fs-4"></i>&nbsp; BY WATERING</button> </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse border-0"
                             aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
-                            <div class="accordion-body p-0">
+                            <div class="accordion-body bg-light text-center p-0">
                                 <ul class="list-unstyled m-0">
                                     <li>
-                                        <a href="{% url 'products' %}?water=High">Hight</a>
-                                        <a href="{% url 'products' %}?water=Medium">Medium</a>
-                                        <a href="{% url 'products' %}?water=Low">Low</a>
+                                        <a href="{% url 'products' %}?water=High" class="btn">Hight</a>
+                                        <a href="{% url 'products' %}?water=Medium" class="btn">Medium</a>
+                                        <a href="{% url 'products' %}?water=Low" class="btn">Low</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                aria-expanded="false" aria-controls="flush-collapseThree"> BY LIGHTNING </button> </h2>
+                        <h2 class="accordion-header" id="flush-headingOne"> <button
+                                class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree"><i class="bi bi-lightbulb fs-4"></i>&nbsp; BY LIGHTNING </button> </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse border-0"
                             aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
-                            <div class="accordion-body p-0">
+                            <div class="accordion-body bg-light text-center p-0">
                                 <ul class="list-unstyled m-0">
                                     <li>
-                                        <a href="{% url 'products' %}?light=Bright Light">Bright Light</a>
-                                        <a href="{% url 'products' %}?light=Indirect Light">Indirect Light</a>
-                                        <a href="{% url 'products' %}?light=Low Light">Low Light</a>
+                                        <a href="{% url 'products' %}?light=Bright Light" class="btn">Bright Light</a>
+                                        <a href="{% url 'products' %}?light=Indirect Light" class="btn">Indirect Light</a>
+                                        <a href="{% url 'products' %}?light=Low Light" class="btn">Low Light</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour"
-                                aria-expanded="false" aria-controls="flush-collapseFour"> BY TOXIC </button> </h2>
+                        <h2 class="accordion-header" id="flush-headingOne"> <button
+                                class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                aria-controls="flush-collapseFour"><i class="bi bi-radioactive fs-4"></i>&nbsp; BY TOXIC </button> </h2>
                         <div id="flush-collapseFour" class="accordion-collapse collapse border-0"
                             aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
-                            <div class="accordion-body p-0">
+                            <div class="accordion-body bg-light text-center p-0">
                                 <ul class="list-unstyled m-0">
                                     <li>
-                                        <a href="{% url 'products' %}?plants&toxic=True">Toxic</a>
-                                        <a href="{% url 'products' %}?plants&toxic=False">Non Toxic</a>
+                                        <a href="{% url 'products' %}?plants&toxic=True" class="btn">Toxic</a>
+                                        <a href="{% url 'products' %}?plants&toxic=False" class="btn">Non Toxic</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
         <div class="col-lg-9">
             <div class="row mb-3">
@@ -120,8 +129,7 @@
                             <p>Sort products by</p>
                         </li>
                         <li class="list-inline-item">
-                            <select id="sort-selector"
-                                class="form-select form-select-md border border-black">
+                            <select id="sort-selector" class="form-select form-select-md border border-black">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
                                     Sort by...
                                 </option>
@@ -153,62 +161,64 @@
 
             </div>
             <div class="row">
-                <div class="product-container col-11">
-                    <div class="row mt-2 mb-2">
+                <div class="container col-11">
+                    <div class="row mt-2 mb-2 g-3">
                         {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
                             <div class="product-card">
                                 <div class="image-container">
                                     <div class="first">
                                         <div class="d-flex justify-content-between align-items-center">
-                                    
+
                                             <span class="discount">-{{ product.calculate_sale_percentage|floatformat:0 }}%</span>
                                             <!-- Wishlist -->
                                             {% if request.user.is_authenticated %}
                                             <form method="post" action="{% url 'add_to_wishlist' product.id %}">
                                                 {% csrf_token %}
-                                                
-                                                    <button type="submit" class="nav-link">
-                                                        {% if product.id in wishlist_products %}
-                                                        <span class="wishlist"><i class="fa fa-heart"></i></span>
-                                                        {% else %}
-                                                        <span class="wishlist"><i class="fa fa-heart-o"></i></i></span>
-                                                        {% endif %}
-                                                    </button>
-                                                
+
+                                                <button type="submit" class="nav-link">
+                                                    {% if product.id in wishlist_products %}
+                                                    <span class="wishlist"><i class="fa fa-heart"></i></span>
+                                                    {% else %}
+                                                    <span class="wishlist"><i class="fa fa-heart-o"></i></i></span>
+                                                    {% endif %}
+                                                </button>
+
                                             </form>
                                             {% endif %}
                                         </div>
                                     </div>
                                     {% if product.image %}
                                     <a href="{% url 'product_details' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" style="height: 225px;">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}"
+                                            alt="{{ product.name }}" style="height: 225px;">
                                     </a>
                                     {% else %}
                                     <a href="{% url 'product_details' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" style="height: 225px;">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                            alt="{{ product.name }}" style="height: 225px;">
                                     </a>
                                     {% endif %}
                                 </div>
-                               <div class="card-body pt-0 px-1 mt-2">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5 class="mb-0">{{ product.name }}</h5>
-                                        {% if product.botanical_name %}
-                                        <small class="text-muted mt-0">/{{ product.botanical_name }}</small>
-                                        {% endif %}
+                                <div class="card-body pt-0 px-1 mt-2">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h5 class="mb-0">{{ product.name }}</h5>
+                                            {% if product.botanical_name %}
+                                            <small class="text-muted mt-0">/{{ product.botanical_name }}</small>
+                                            {% endif %}
+                                        </div>
+                                        <div class="d-flex flex-column mb-2">
+                                            <span class="new-price">€{{ product.discount_price }}</span>
+                                            <small class="old-price text-right"><del>€{{ product.price }}</del></small>
+                                        </div>
                                     </div>
-                                    <div class="d-flex flex-column mb-2">
-                                        <span class="new-price">€{{ product.discount_price }}</span>
-                                        <small class="old-price text-right"><del>€{{ product.price }}</del></small>
-                                    </div>
-                                </div>
-                                    
+
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            
+
 
                                             {% if product.rating %}
                                             <small class="text-info"><i class="fas fa-star mr-1 text-warning"></i>{{ product.rating }}
@@ -275,83 +285,3 @@
     })
 </script>
 {% endblock %}
-
-<div class="card">
-
-    <div class="image-container">
-
-        <div class="first">
-
-            <div class="d-flex justify-content-between align-items-center">
-
-                <span class="discount">-{{ product.calculate_sale_percentage }}%</span>
-                <span class="wishlist"><i class="fa fa-heart-o"></i></span>
-
-
-            </div>
-        </div>
-        {% if product.image %}
-        <a href="{% url 'product_details' product.id %}">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded thumbnail-image">
-        </a>
-        {% else %}
-        <a href="{% url 'product_details' product.id %}">
-            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="img-fluid rounded thumbnail-image">
-        </a>
-        {% endif %}
-
-    </div>
-
-
-    <div class="product-detail-container p-2">
-
-        <div class="d-flex justify-content-between align-items-center">
-
-            <h5 class="dress-name">{{ product.name }}</h5>
-
-            <div class="d-flex flex-column mb-2">
-
-                <span class="new-price">€{{ product.discount_price }}</span>
-                <small class="old-price text-right">€{{ product.price }}</small>
-            </div>
-
-        </div>
-
-
-        <div class="d-flex justify-content-between align-items-center pt-1">
-
-            <div class="color-select d-flex ">
-
-                <input type="button" name="grey" class="btn creme">
-                <input type="button" name="red" class="btn red ml-2">
-                <input type="button" name="blue" class="btn blue ml-2">
-
-            </div>
-
-            <div class="d-flex ">
-
-                <span class="item-size mr-2 btn" type="button">S</span>
-                <span class="item-size mr-2 btn" type="button">M</span>
-                <span class="item-size btn" type="button">L</span>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="d-flex justify-content-between align-items-center pt-1">
-            <div>
-                <i class="fa fa-star-o rating-star"></i>
-                <span class="rating-number">{{ product.rating }}</span>
-            </div>
-
-            <span class="buy">BUY</span>
-
-        </div>
-
-
-
-    </div>
-
-</div>
