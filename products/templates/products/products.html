@@ -169,6 +169,21 @@
                                         alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
+                                <!-- Wishlist -->
+                                {% if request.user.is_authenticated %}
+                                <form method="post" action="{% url 'add_to_wishlist' product.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-link">
+                                        {% if product.id in wishlist_products %}
+                                            <i class="bi bi-heart-fill wishlist-icon"></i>
+                                            {% else %}
+                                            <i class="bi bi-heart wishlist-icon"></i>
+                                        {% endif %}
+                                    </button>
+                                </form>
+                                {% endif %}
+
+
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ product.name }}</p>
                                     <p class="text-muted mb-0">{{ product.botanical_name }}</p>
