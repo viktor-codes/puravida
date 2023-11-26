@@ -8,11 +8,9 @@ from django.contrib import messages
 @login_required
 def wishlist(request):
     wishlist = Wishlist.objects.all()
-    wishlist_count = Wishlist.objects.count()
 
     context = {
         "wishlist": wishlist,
-        "wishlist_count": wishlist_count,
     }
     return render(request, "wishlist/wishlist.html", context)
 

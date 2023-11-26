@@ -12,6 +12,7 @@ def wishlist_items(request):
     # Initialize an empty queryset for wishlist
     wishlist = Wishlist.objects.none()
     wishlist_count = 0
+    wishlist_products = []
 
     if user.is_authenticated and product_id:
         # If the user is authenticated and product_id is present,

@@ -71,12 +71,13 @@
                             <div><i class="bi bi-search fs-4"></i></div>
                         </a>
                     </li>
+                    {% if request.user.is_authenticated %}
                     <li class="list-inline-item">
                         <a class="nav-link" href="{% url 'wishlist' %}">
                             <div class="text-center p-1">
                                 <div class="position-relative"><i class="bi bi-heart fs-4"></i>
                                     {% if wishlist_count > 0 %}
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill custom-success-bg">
                                         {{ wishlist_count }}
                                     </span>
                                     {% endif %}
@@ -84,6 +85,7 @@
                             </div>
                         </a>
                     </li>
+                    {% endif %}
                     <li class="list-inline-item dropdown border-0">
                         <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -110,7 +112,7 @@
                                 <div class="position-relative"><i class="bi bi-basket fs-4"></i>
                                     {% if bag_items %}
                                     <span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill custom-success-bg">
                                         {{ product_count }}
                                     </span>
                                     {% endif %}

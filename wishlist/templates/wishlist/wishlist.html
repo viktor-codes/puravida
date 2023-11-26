@@ -43,7 +43,7 @@
                             </td>
                             <td class="align-middle">
                                 <h6>
-                                    <a class="product-name mb-1" href="">
+                                    <a class="product-name text-black mb-1" href="{% url 'product_details' item.product.id %}">
                                         {{ item.product.name }}
                                     </a>
                                 </h6>
@@ -55,13 +55,13 @@
                                 <form method="POST" action="{% url 'add_to_bag' item.product_id %}">
                                     {% csrf_token %}
                                     
-                                    <input type="submit" class="btn btn-success text-uppercase mt-5" value="Add to Bag">
+                                    <input type="submit" class="btn custom-btn-success text-uppercase mt-5" value="Add to Bag">
                                     <input type="hidden" name="quantity" value="1" min="1" id="id_qty_{{ item.product.id }}" >
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </form>
                             </td>
                             <td class="align-middle text-center" data-title="Remove">
-                                <a class="remove-item text-black" type="button" id="remove_{{ item.product.id }}">
+                                <a class="remove-wishlist-item text-black" type="button" id="remove_{{ item.product.id }}">
                                     <i class="bi bi-trash fs-5"></i>
                                 </a>
                             </td>
@@ -81,7 +81,7 @@
 {% block postloadjs %}
 <script type="text/javascript">
     // Remove item and reload on click
-    $('.remove-item').click(function (e) {
+    $('.remove-wishlist-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('size');

@@ -78,7 +78,7 @@
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <input type="submit" class="btn btn-success text-uppercase mt-5" value="Add to Bag">
+                            <input type="submit" class="btn custom-btn-success text-uppercase mt-5" value="Add to Bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
@@ -126,7 +126,7 @@
             {% endif %}
         </div>
         {% if request.user.is_authenticated %}
-        <div class="col-lg-4 text-center">
+        <div class="col-lg-4 text-center mb-3">
             <h4 class="mb-3">Add a review</h4>
             <div class="card">
                 <form class="form-control" action="" id="commentForm" method="POST">
@@ -142,7 +142,7 @@
                             {{review_form.rating}}
                         </div>
                         <div class="container">
-                            <button type="submit" class="btn btn-success">Submit Review</button>
+                            <button type="submit" class="btn custom-btn-success">Submit Review</button>
                         </div>
                     </div>
                 </form>

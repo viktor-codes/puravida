@@ -4,8 +4,24 @@ body {
 
 header {
     background-color: #f4f4f4;
+    background-image: url('/media/top.jpg');
+    background-size: cover;
+    background-position: 80% 20%;
 }
 
+.custom-success-bg {
+    background-color: #35623e;
+}
+
+.custom-success-text {
+    color: #35623e;
+}
+
+.custom-btn-success {
+    background-color: #35623e;
+    border-color: #35623e;
+    color: #fff;
+}
 #logo {
     margin-top: -1rem;
 }
@@ -472,7 +488,7 @@ input[type=number]{
 
     background-color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 225px;
 
 
@@ -522,14 +538,13 @@ input[type=number]{
 }
 
 .new-price {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
-    color: red;
-
+    
 }
 
 .old-price {
-    font-size: 8px;
+    font-size: 10px;
     font-weight: bold;
     color: grey;
 }
