@@ -79,7 +79,7 @@
 {% endblock %}
 
 {% block postloadjs %}
-<script type="text/javascript">
+<script>
     // Remove item and reload on click
     $('.remove-wishlist-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";

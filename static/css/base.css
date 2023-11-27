@@ -244,43 +244,6 @@ input[type=number] {
     overflow-y: auto;
 }
 
-
-
-/* Small Screen */
-@media only screen and (max-width: 991px) {
-    .text-hero {
-        font-size: 1.5rem;
-    }
-
-    .shop-now-button {
-        width: 150px;
-        font-size: 1rem;
-    }
-
-    .discount-button {
-        width: 150px;
-        font-size: 1rem;
-    }
-
-    #home {
-        background: url('/media/mobile_hero.webp') no-repeat;
-        background-size: cover;
-        background-position: 60% 40%;
-        background-repeat: no-repeat;
-    }
-
-    #logo img {
-        height: 50px;
-        width: 50px;
-    }
-
-    .header-container {
-        padding-top: 98px;
-    }
-
-}
-
-
 .allauth-form-inner-content p {
     margin-top: 1.5rem;
     /* mt-4 */
@@ -362,45 +325,7 @@ input[type=number] {
     border-radius: 0;
 }
 
-/* Large screen */
-@media only screen and (min-width: 992px) {
-    .header-container {
-        padding-top: 144px;
-    }
-
-    .icons-menu {
-        margin-top: 1rem;
-    }
-
-    .navbar .dropdown:hover>.dropdown-menu {
-        display: block;
-        margin-top: 0;
-    }
-
-    #logo {
-        position: absolute;
-    }
-
-    #logo img {
-        height: 65px;
-        width: 65px;
-    }
-
-    .text-brand {
-        font-size: 1.2rem;
-    }
-
-    #logo {
-        margin-left: 5rem;
-    }
-
-    /* .filter-wrapper {
-        margin-top: 95px;
-    } */
-}
-
 /* faq */
-
 .wrapper {
     max-width: 760px;
     margin: 50px auto;
@@ -475,24 +400,6 @@ input[type=number] {
     color: #222
 }
 
-@media (max-width: 777px) {
-    .wrapper {
-        margin: 50px 20px
-    }
-}
-
-@media (max-width: 365px) {
-    .wrapper {
-        margin: 50px 10px
-    }
-
-    .w-75 {
-        width: 90% !important
-    }
-
-    .
-}
-
 .product-card {
 
     background-color: #fff;
@@ -556,4 +463,87 @@ input[type=number] {
     font-size: 10px;
     font-weight: bold;
     color: grey;
+}
+
+/* Large screen */
+@media only screen and (min-width: 992px) {
+    .header-container {
+        padding-top: 144px;
+    }
+
+    .icons-menu {
+        margin-top: 1rem;
+    }
+
+    .navbar .dropdown:hover>.dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+
+    #logo {
+        position: absolute;
+    }
+
+    #logo img {
+        height: 65px;
+        width: 65px;
+    }
+
+    .text-brand {
+        font-size: 1.2rem;
+    }
+
+    #logo {
+        margin-left: 5rem;
+    }
+}
+
+/* Small Screen */
+@media only screen and (max-width: 991px) {
+    .text-hero {
+        font-size: 1.5rem;
+    }
+
+    .shop-now-button {
+        width: 150px;
+        font-size: 1rem;
+    }
+
+    .discount-button {
+        width: 150px;
+        font-size: 1rem;
+    }
+
+    #home {
+        background: url('/media/mobile_hero.webp') no-repeat;
+        background-size: cover;
+        background-position: 60% 40%;
+        background-repeat: no-repeat;
+    }
+
+    #logo img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .header-container {
+        padding-top: 98px;
+    }
+
+}
+
+@media (max-width: 777px) {
+    .wrapper {
+        margin: 50px 20px
+    }
+}
+
+@media (max-width: 365px) {
+    .wrapper {
+        margin: 50px 10px
+    }
+
+    .w-75 {
+        width: 90% !important
+    }
 }
