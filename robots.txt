@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /account/
+Sitemap: https://puravida-b1d8a70ff589.herokuapp.com/sitemap.xml
