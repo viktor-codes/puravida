@@ -53,7 +53,7 @@
     <header class="container-fluid fixed-top px-0 cactus">
         <div id="topnav" class=" d-flex justify-content-between align-items-center py-2">
             <div class="col-2 d-lg-none">
-                <a class="btn btn-sm text-start no-hover" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                <a href="#" class="btn btn-sm text-start no-hover" data-bs-toggle="collapse" data-bs-target="#main-nav"
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-list fs-3"></i>
                 </a>
@@ -66,7 +66,7 @@
             <div class="icons-menu col-auto text-end">
                 <ul class="list-inline list-unstyled me-lg-5 me-3 m-0">
                     <li class="list-inline-item">
-                        <a class="nav-link" type="button" data-bs-toggle="offcanvas"
+                        <a href="#" class="nav-link" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasSearch" aria-controls="offcanvasTop">
                             <div><i class="bi bi-search fs-4"></i></div>
                         </a>
@@ -133,6 +133,19 @@
                 <h4 class="text-brand my-1">Free delivery on orders over €{{ free_delivery_threshold }}</h4>
             </div>
         </div>
+            <!-- Offcanvas Search -->
+            <div class="offcanvas offcanvas-top h-auto" tabindex="-1" id="offcanvasSearch" aria-labelledby="offcanvasSearch">
+                <div class="offcanvas-body w-75 mx-auto">
+                    <div class="rounded-0" aria-labelledby="search">
+                        <form method="GET" action="{% url 'products' %}" class="d-flex" role="search">
+                            <input class="form-control me-1 rounded-0" type="text" name="q" placeholder="Search our site">
+                            <button class="btn btn-outline-success rounded-0" type="submit"><i class="fas fa-search"></i></button>
+                            <button type="button" class="btn-close my-auto ps-3" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
     </header>
     {% if messages %}
     <div class="message-container">
@@ -159,26 +172,11 @@
     {% endblock %}
     
     {% block postloadjs %}
-        <script type="text/javascript">
+        <script>
             $(document).ready(function () {
                 $(".toast").toast("show");
             });
         </script>
     {% endblock %}
-
-    <!-- Offcanvas Search -->
-    <div class="offcanvas offcanvas-top h-auto" tabindex="-1" id="offcanvasSearch" aria-labelledby="offcanvasSearch">
-        <div class="offcanvas-body w-75 mx-auto">
-            <div class="rounded-0" aria-labelledby="search">
-                <form method="GET" action="{% url 'products' %}" class="d-flex" role="search">
-                    <input class="form-control me-1 rounded-0" type="text" name="q" placeholder="Search our site">
-                    <button class="btn btn-outline-success rounded-0" type="submit"><i class="fas fa-search"></i></button>
-                    <button type="button" class="btn-close my-auto ps-3" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </form>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>
