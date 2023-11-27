@@ -1,1 +1,1 @@
-web: gunicorn pur_avida.wsgi:application
+web: gunicorn pura_vida.wsgi:application
