@@ -23,6 +23,13 @@ header {
     color: #fff;
 }
 
+.custom-btn-success:hover {
+    background-color: #35623e;
+    border-color: #35623e;
+    color: #fff;
+}
+
+
 #logo {
     margin-top: -1rem;
 }
@@ -137,6 +144,14 @@ header {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    position: absolute;
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
 }
 
 .bi-box-arrow-in-up {
@@ -565,4 +580,8 @@ input[type=number] {
     color: #fff;
     background-color: #f9a826;
     border-color: #f9a826;
+}
+
+#footer {
+    background-color: #f4f4f4;
 }
