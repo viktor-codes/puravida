@@ -1,31 +1,31 @@
-body {
-    background-color: #FFE167;
-}
+/* body {
+    background-color: #c6e6dd;
+} */
 
 header {
     background-color: #f4f4f4;
     background-image: url('/media/top.jpg');
     background-size: cover;
-    background-position: 80% 20%;
+    background-position: 75% 25%;
 }
 
 .custom-success-bg {
-    background-color: #35623e;
+    background-color: #186049;
 }
 
 .custom-success-text {
-    color: #35623e;
+    color: #186049;
 }
 
 .custom-btn-success {
-    background-color: #35623e;
-    border-color: #35623e;
+    background-color: #186049;
+    border-color: #186049;
     color: #fff;
 }
 
 .custom-btn-success:hover {
-    background-color: #35623e;
-    border-color: #35623e;
+    background-color: #186049;
+    border-color: #186049;
     color: #fff;
 }
 
@@ -40,7 +40,7 @@ header {
 }
 
 #delivery-banner {
-    background-color: #35623e;
+    background-color: #186049;
     font-size: 0.5rem;
 }
 
@@ -53,6 +53,14 @@ header {
     clip-path: polygon(100% 0, 100% 100%, 52% 100%, 33% 75%, 8% 59%, 0 28%, 0 0);
 }
 
+.title-best{
+    z-index: 1;
+    background: url('/media/hands.jpg') no-repeat;
+    background-size: cover;
+    background-position: 90% 10%;
+
+}
+
 .navbar .nav-link::before {
     content: '';
     position: absolute;
@@ -62,7 +70,7 @@ header {
     margin-inline: auto;
     width: 0px;
     height: 2px;
-    background-color: #35623e;
+    background-color: #186049;
     transition: all .6s ease;
     transform-origin: center;
 }
@@ -87,7 +95,13 @@ header {
 
 .text-hero {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
+}
+
+.text-sub-hero {
+    font-family: 'Hind', sans-serif;
+    font-weight: 300;
+    
 }
 
 .nav-text {
@@ -129,7 +143,7 @@ header {
 }
 
 .discount-button:hover {
-    box-shadow: 0 0 40px 40px #35623e inset;
+    box-shadow: 0 0 40px 40px #186049 inset;
 }
 
 .no-hover:hover {
@@ -155,7 +169,7 @@ header {
 }
 
 .bi-box-arrow-in-up {
-    color: #35623e;
+    color: #186049;
 }
 
 .btt-link,
@@ -452,7 +466,7 @@ input[type=number] {
 
     height: 27px;
     width: 27px;
-    color: #35623e;
+    color: #186049;
     background-color: #eee;
     display: flex;
     justify-content: center;
@@ -583,5 +597,6 @@ input[type=number] {
 }
 
 #footer {
-    background-color: #f4f4f4;
+    background-color: #186049;
 }
+

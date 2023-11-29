@@ -1,175 +1,446 @@
-{% extends "includes/base.html" %}
-{% load static %}
-
-{% block page_header %}
+{% extends "includes/base.html" %} {% load static %} {% block page_header %}
 <div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
+  <div class="row">
+    <div class="col"></div>
+  </div>
 </div>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <section id="home">
-    <div class="container col-xxl-8 px-4 py-5">
-        <div class="row align-items-center py-5">
-            <div class="col-lg-6 col-md-6 col-sm-8 col-6">
-                <h1 class="display-5 lh-1 mb-3 text-hero">The largest selection of <strong>indoor plants</strong> in
-                    <strong>Ireland</strong>
-                </h1>
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop
-                    Now</a>
-                <a href="#newsletter" class="discount-button btn btn-lg rounded-0 text-uppercase py-3"><span>get 20%
-                        off</span></a>
-            </div>
-        </div>
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row align-items-center py-5">
+      <div class="col-lg-6 col-md-6 col-sm-8 col-6">
+        <h1 class="display-5 lh-1 mb-3 text-hero">
+          The largest selection of <strong>indoor plants</strong> in
+          <strong>Ireland</strong>
+        </h1>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a
+          href="{% url 'products' %}"
+          class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3"
+          >Shop Now</a
+        >
+        <a
+          href="#newsletter"
+          class="discount-button btn btn-lg rounded-0 text-uppercase py-3"
+          ><span>get 20% off</span></a
+        >
+      </div>
     </div>
+  </div>
 </section>
-<section id="newsletter">
-    {% include 'newsletter/newsletter.html' %}
-</section>
-<section id="faq">
-    <div class="wrapper bg-white rounded shadow">
-        <div class="h2 text-center fw-bold">FAQ</div>
-        <div class="accordion accordion-flush border-top border-start border-end" id="myAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne"> <button class="accordion-button collapsed border-0"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                        aria-controls="flush-collapseOne"> How do I care for my indoor plants? </button> </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingOne"
-                    data-bs-parent="#myAccordion">
-                    <div class="accordion-body p-0">
-                        <ul class="list-unstyled m-0">
-                            <li><p>Each plant has specific care requirements, but in general, ensure they have the right amount of light, water, and
-                            humidity. Check the care instructions provided with each plant or reach out to our customer support for guidance.</p></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwo"> <button class="accordion-button collapsed border-0"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                        aria-controls="flush-collapseTwo"> What kind of indoor plants do you offer? </button> </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingTwo"
-                    data-bs-parent="#myAccordion">
-                    <div class="accordion-body p-0">
-                        <ul class="list-unstyled m-0">
-                            <li><p>We offer a wide variety of indoor plants, including tropical, succulents, air purifiers, and low-maintenance options.
-                            Browse our catalog to discover the perfect plant for your space.</p></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingThree"> <button class="accordion-button collapsed border-0"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
-                        aria-controls="flush-collapseThree"> How often should I water my indoor plants? </button> </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse border-0"
-                    aria-labelledby="flush-headingThree" data-bs-parent="#myAccordion">
-                    <div class="accordion-body p-0">
-                        <ul class="list-unstyled m-0">
-                            <li><p>The watering frequency varies depending on the type of plant, the size of the pot, and the environmental conditions.
-                            Typically, it's best to allow the top inch of soil to dry out before watering. Consult the care instructions for each
-                            plant on our website for specific guidance.</p></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingFour"> <button class="accordion-button collapsed border-0"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false"
-                        aria-controls="flush-collapseFour"> Do you offer plant care tips and advice? </button> </h2>
-                <div id="flush-collapseFour" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingFour"
-                    data-bs-parent="#myAccordion">
-                    <div class="accordion-body p-0">
-                        <ul class="list-unstyled m-0">
-                            <li><p>Yes, we provide detailed care instructions with each plant purchase. Additionally, you can find a wealth of plant care
-                            tips and resources on our blog and social media channels.</p></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingFive"> <button class="accordion-button collapsed border-0"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false"
-                        aria-controls="flush-collapseFive"> How can I contact your customer support team? </button> </h2>
-                <div id="flush-collapseFive" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingFive"
-                    data-bs-parent="#myAccordion">
-                    <div class="accordion-body p-0">
-                        <ul class="list-unstyled m-0">
-                            <li><p>You can reach our customer support team through our Contact Us page, or send an email to support@yourplantshop.com.
-                            We're here to assist you with any questions or concerns you may have.</p></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingSix"> <button class="accordion-button collapsed border-0"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false"
-                        aria-controls="flush-collapseSix"> Are your plants pet-friendly? </button> </h2>
-                <div id="flush-collapseSix" class="accordion-collapse collapse border-0" aria-labelledby="flush-headingSix"
-                    data-bs-parent="#myAccordion">
-                    <div class="accordion-body p-0">
-                        <ul class="list-unstyled m-0">
-                            <li><p>Some of our plants are considered pet-friendly, while others may be toxic to pets. Please check the individual product
-                            descriptions for information about the plant's safety around pets.</p></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<section id="bestsellers">
+  <div class="album mb-5 pb-5">
+    <div class="container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light text-hero text-center">
+            Best Selling Indoor Plants
+          </h1>
         </div>
+      </div>
+
+      <div class="row row-cols-sm-2 row-cols-md-5 g-3">
+        {% for product in products %} {% if product.rating >= 5 %}
+        <div class="col col-sm-6">
+          <div class="card shadow-sm">
+            <img
+              class="bd-placeholder-img card-img-top"
+              width="100%"
+              src="{{ product.image.url }}"
+            />
+
+            <div class="card-body">
+              <h5 class="fw-normal">{{ product.name }}</h5>
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="fw-bolder">{{ product.price }} €</h6>
+                <form method="POST" action="{% url 'add_to_bag' product.id %}">
+                  {% csrf_token %}
+
+                  <input
+                    type="submit"
+                    class="btn custom-btn-success"
+                    value="Add to Bag"
+                  />
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    value="1"
+                    min="1"
+                    id="id_qty_{{ item.product.id }}"
+                  />
+                  <input
+                    type="hidden"
+                    name="redirect_url"
+                    value="{{ request.path }}"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %} {% endfor %}
+      </div>
     </div>
+  </div>
+</section>
+<section id="newsletter" class="title-best">
+  {% include 'newsletter/newsletter.html' %}
+</section>
+<!-- <section id="faq">
+  <div class="wrapper bg-white rounded shadow">
+    <div class="h2 text-center fw-bold">FAQ</div>
+    <div
+      class="accordion accordion-flush border-top border-start border-end"
+      id="myAccordion"
+    >
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button
+            class="accordion-button collapsed border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne"
+            aria-expanded="true"
+            aria-controls="flush-collapseOne"
+          >
+            How do I care for my indoor plants?
+          </button>
+        </h2>
+        <div
+          id="flush-collapseOne"
+          class="accordion-collapse collapse border-0"
+          aria-labelledby="flush-headingOne"
+          data-bs-parent="#myAccordion"
+        >
+          <div class="accordion-body p-0">
+            <ul class="list-unstyled m-0">
+              <li>
+                <p>
+                  Each plant has specific care requirements, but in general,
+                  ensure they have the right amount of light, water, and
+                  humidity. Check the care instructions provided with each plant
+                  or reach out to our customer support for guidance.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button
+            class="accordion-button collapsed border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo"
+            aria-expanded="true"
+            aria-controls="flush-collapseTwo"
+          >
+            What kind of indoor plants do you offer?
+          </button>
+        </h2>
+        <div
+          id="flush-collapseTwo"
+          class="accordion-collapse collapse border-0"
+          aria-labelledby="flush-headingTwo"
+          data-bs-parent="#myAccordion"
+        >
+          <div class="accordion-body p-0">
+            <ul class="list-unstyled m-0">
+              <li>
+                <p>
+                  We offer a wide variety of indoor plants, including tropical,
+                  succulents, air purifiers, and low-maintenance options. Browse
+                  our catalog to discover the perfect plant for your space.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button
+            class="accordion-button collapsed border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseThree"
+            aria-expanded="true"
+            aria-controls="flush-collapseThree"
+          >
+            How often should I water my indoor plants?
+          </button>
+        </h2>
+        <div
+          id="flush-collapseThree"
+          class="accordion-collapse collapse border-0"
+          aria-labelledby="flush-headingThree"
+          data-bs-parent="#myAccordion"
+        >
+          <div class="accordion-body p-0">
+            <ul class="list-unstyled m-0">
+              <li>
+                <p>
+                  The watering frequency varies depending on the type of plant,
+                  the size of the pot, and the environmental conditions.
+                  Typically, it's best to allow the top inch of soil to dry out
+                  before watering. Consult the care instructions for each plant
+                  on our website for specific guidance.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFour">
+          <button
+            class="accordion-button collapsed border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseFour"
+            aria-expanded="true"
+            aria-controls="flush-collapseFour"
+          >
+            Do you offer plant care tips and advice?
+          </button>
+        </h2>
+        <div
+          id="flush-collapseFour"
+          class="accordion-collapse collapse border-0"
+          aria-labelledby="flush-headingFour"
+          data-bs-parent="#myAccordion"
+        >
+          <div class="accordion-body p-0">
+            <ul class="list-unstyled m-0">
+              <li>
+                <p>
+                  Yes, we provide detailed care instructions with each plant
+                  purchase. Additionally, you can find a wealth of plant care
+                  tips and resources on our blog and social media channels.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFive">
+          <button
+            class="accordion-button collapsed border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseFive"
+            aria-expanded="true"
+            aria-controls="flush-collapseFive"
+          >
+            How can I contact your customer support team?
+          </button>
+        </h2>
+        <div
+          id="flush-collapseFive"
+          class="accordion-collapse collapse border-0"
+          aria-labelledby="flush-headingFive"
+          data-bs-parent="#myAccordion"
+        >
+          <div class="accordion-body p-0">
+            <ul class="list-unstyled m-0">
+              <li>
+                <p>
+                  You can reach our customer support team through our Contact Us
+                  page, or send an email to support@yourplantshop.com. We're
+                  here to assist you with any questions or concerns you may
+                  have.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingSix">
+          <button
+            class="accordion-button collapsed border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseSix"
+            aria-expanded="true"
+            aria-controls="flush-collapseSix"
+          >
+            Are your plants pet-friendly?
+          </button>
+        </h2>
+        <div
+          id="flush-collapseSix"
+          class="accordion-collapse collapse border-0"
+          aria-labelledby="flush-headingSix"
+          data-bs-parent="#myAccordion"
+        >
+          <div class="accordion-body p-0">
+            <ul class="list-unstyled m-0">
+              <li>
+                <p>
+                  Some of our plants are considered pet-friendly, while others
+                  may be toxic to pets. Please check the individual product
+                  descriptions for information about the plant's safety around
+                  pets.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section id="testimonials">
+  <div class="container py-5 my-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-xl-8 text-center">
+        <h3 class="mb-4 text-hero">
+          Discover what our customers have to say about their experience with
+          Pura Vida Indoor Plants.
+        </h3>
+        <p class="mb-4 pb-2 mb-md-5 pb-md-0 text-sub-hero">
+          We take pride in providing top-quality indoor plants along with
+          exceptional service to create a green oasis in your home or office.
+        </p>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-4 mb-5 mb-md-0">
+        <div class="d-flex justify-content-center mb-4">
+          <img
+            src="{{ MEDIA_URL }}reviewer2.jpg"
+            class="rounded-circle shadow-1-strong"
+            width="150"
+            height="150"
+          />
+        </div>
+        <h5 class="mb-3 text-hero">Maria Smantha, Dublin</h5>
+        <p class="px-xl-3 text-sub-hero">
+          <i class="fas fa-quote-left pe-2"></i>"A Breath of Fresh Air" Pura
+          Vida Indoor Plants has transformed my living space! The variety of
+          plants and their vibrant colors breathe life into my home. The
+          customer service was excellent, helping me choose the perfect plants
+          for each room. Can't wait to add more greenery!"
+        </p>
+      </div>
+      <div class="col-md-4 mb-5 mb-md-0 d-none d-sm-block">
+        <div class="d-flex justify-content-center mb-4">
+          <img
+            src="{{ MEDIA_URL }}reviewer1.jpg"
+            class="rounded-circle shadow-1-strong"
+            width="150"
+            height="150"
+          />
+        </div>
+        <h5 class="mb-3 text-hero">— Liam M., Cork</h5>
+        <p class="px-xl-3 text-sub-hero">
+          <i class="fas fa-quote-left pe-2"></i>"Quality Beyond Expectations" "I
+          am thoroughly impressed with the quality of plants from Pura Vida.
+          They arrived in perfect condition, well-packaged and healthy. The care
+          instructions provided were incredibly helpful, even for a beginner
+          like me. Pura Vida is now my go-to for indoor plants!"
+        </p>
+      </div>
+      <div class="col-md-4 mb-0 d-none d-sm-block">
+        <div class="d-flex justify-content-center mb-4">
+          <img
+            src="{{ MEDIA_URL }}reviewer3.jpg"
+            class="rounded-circle shadow-1-strong"
+            width="150"
+            height="150"
+          />
+        </div>
+        <h5 class="mb-3 text-hero">— Sarah P., Galway</h5>
+        <p class="px-xl-3 text-sub-hero">
+          <i class="fas fa-quote-left pe-2"></i>"Greening up the Workspace" "As
+          a professional working from home, having a green and inviting
+          workspace is essential. Pura Vida's range of office-friendly plants
+          not only enhances the aesthetics but also improves the air quality.
+          Excellent service, prompt delivery—I couldn't be happier!"
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="footer">
-    <footer class="row row-cols-5 py-5 my-5 border-top">
-        <div class="col">
-            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
+  <div class="container mx-auto text-white">
+    <footer class="pt-5 pb-1">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <h5>Pura Vida Plants</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link p-0 text-muted">Indoor Plants</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link p-0 text-muted">Plants on Sale</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link p-0 text-muted"
+                >Perfect Plants under 40€</a
+              >
+            </li>
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link p-0 text-muted"
+                >Perfect Plants under 20€</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <h5>Company Information</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link p-0 text-muted">Contact Us</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link p-0 text-muted"
+                >Frequently Asked Questions</a
+              >
+            </li>
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link p-0 text-muted"
+                >Payment Information</a
+              >
+            </li>
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link p-0 text-muted"
+                >Delivery Information</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 mt-2">
+          <h5>At Pura Vida</h5>
+          <div>
+            <em
+              >We believe in the power of nature to transform your living spaces
+              into vibrant, refreshing sanctuaries. We are more than just an
+              online store; we are your green companions on the journey to a
+              healthier, happier home.</em
+            >
+          </div>
+          <div
+            class="d-flex justify-content-between align-items-middle py-4 border-top"
+          >
+            <p class="pt-1">Check for the lates news on our page</p>
+            <a class="nav-link mt-0" href="#">
+              <i class="bi bi-facebook fs-4"></i>
             </a>
-            <p class="text-muted">© 2021</p>
+          </div>
         </div>
-    
-        <div class="col">
-    
-        </div>
-    
-        <div class="col">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-        </div>
-    
-        <div class="col">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-        </div>
-    
-        <div class="col">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-        </div>
+      </div>
+      <p class="text-center text-white fw-lighter">
+        © 2023 PuraVida &#9752;&#65039;
+      </p>
     </footer>
+  </div>
 </section>
-{% endblock %}
+{% endblock %} {% block postloadjs %} {% endblock %}
