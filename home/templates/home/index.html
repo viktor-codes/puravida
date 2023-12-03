@@ -380,18 +380,18 @@
           <h5>Pura Vida Plants</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-muted">Indoor Plants</a>
+              <a href="{% url 'products' %}" class="nav-link p-0 text-muted">Indoor Plants</a>
             </li>
             <li class="nav-item mb-2">
               <a href="#" class="nav-link p-0 text-muted">Plants on Sale</a>
             </li>
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-muted"
+              <a href="{% url 'products' %}?plants&under_40&sort=price&direction=asc"  class="nav-link p-0 text-muted"
                 >Perfect Plants under 40€</a
               >
             </li>
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-muted"
+              <a href="{% url 'products' %}?plants&under_20&sort=price&direction=asc" class="nav-link p-0 text-muted"
                 >Perfect Plants under 20€</a
               >
             </li>
@@ -434,7 +434,7 @@
             class="d-flex justify-content-between align-items-middle py-4 border-top"
           >
             <p class="pt-1">Check for the lates news on our page</p>
-            <a class="nav-link mt-0" href="#">
+            <a class="nav-link mt-0" href="https://www.facebook.com/profile.php?id=61553797030258" target="_blank">
               <i class="bi bi-facebook fs-4"></i>
             </a>
           </div>

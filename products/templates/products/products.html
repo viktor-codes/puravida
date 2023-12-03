@@ -74,9 +74,9 @@
                             <div class="accordion-body bg-light text-center p-0">
                                 <ul class="list-unstyled m-0">
                                     <li>
-                                        <a href="{% url 'products' %}?light=BrightLight" class="btn">Bright Light</a>
-                                        <a href="{% url 'products' %}?light=IndirectLight" class="btn">Indirect Light</a>
-                                        <a href="{% url 'products' %}?light=LowLight" class="btn">Low Light</a>
+                                        <a href="{% url 'products' %}?BrightLight" class="btn">Bright Light</a>
+                                        <a href="{% url 'products' %}?IndirectLight" class="btn">Indirect Light</a>
+                                        <a href="{% url 'products' %}?LowLight" class="btn">Low Light</a>
                                     </li>
                                 </ul>
                             </div>
@@ -108,18 +108,6 @@
                     Products listed: <strong>{{ products|length }}</strong> {% if search_term %} found for
                     <strong>"{{search_term}}"</strong>{%endif%}
                 </p>
-                <div class="row mb-3">
-                    <div class="d-flex">
-                        {% for filter_type, filter_value in request.GET.items %}
-                        <div class="me-2">
-                            <a href="#">
-                                <span class="badge rounded-pill bg-warning">{{ filter_type }}</span>
-                                <span class="badge rounded-pill bg-secondary">{{ filter_value }}</span>
-                            </a>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
             </div>
             <div class="row">
                 <div class="col-md-6">

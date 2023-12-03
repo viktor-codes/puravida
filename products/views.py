@@ -24,11 +24,11 @@ def all_products(request):
         if 'plants' in request.GET:
             products = products.filter(category__id__lt=5)
 
-        if 'under_10' in request.GET:
-            products = products.filter(price__lt=10)
-
         if 'under_20' in request.GET:
             products = products.filter(price__lt=20)
+
+        if 'under_40' in request.GET:
+            products = products.filter(price__lt=40)
 
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -68,9 +68,14 @@ def all_products(request):
             watering_level = request.GET['water']
             products = products.filter(watering_needs=watering_level)
 
-        if 'light' in request.GET:
-            light_level = request.GET['light']
-            products = products.filter(preferred_light=light_level)
+        if 'BrightLight' in request.GET:
+            products = products.filter(preferred_light='Bright Light')
+
+        if 'IndirectLight' in request.GET:
+            products = products.filter(preferred_light='Indirect Light')
+
+        if 'LowLight' in request.GET:
+            products = products.filter(preferred_light='Low Light')
 
         if 'toxic' in request.GET:
             toxic_filter = request.GET['toxic']
