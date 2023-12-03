@@ -50,7 +50,7 @@ header {
     background: url('/media/hero.webp') no-repeat;
     background-size: cover;
     background-position: 80% 20%;
-    clip-path: polygon(100% 0, 100% 100%, 52% 100%, 33% 75%, 8% 59%, 0 28%, 0 0);
+    /* clip-path: polygon(100% 0, 100% 100%, 52% 100%, 33% 75%, 8% 59%, 0 28%, 0 0); */
 }
 
 .title-best{

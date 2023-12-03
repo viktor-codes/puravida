@@ -6,7 +6,7 @@ from products.models import Product
 def index(request):
 
     products = Product.objects.all()
-    
+
     context = {
         'form': SubscibersForm(),
         'products': products,
