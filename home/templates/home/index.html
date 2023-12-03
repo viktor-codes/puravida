@@ -44,36 +44,13 @@
         {% for product in products %} {% if product.rating >= 5 %}
         <div class="col col-sm-6">
           <div class="card shadow-sm">
-            <img
-              class="bd-placeholder-img card-img-top"
-              src="{{ product.image.url }}"
-              alt="{{ product.name }}"
-            >
-
+            <a href="{% url 'product_details' product.id %}">
+              <img class="bd-placeholder-img card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+            </a>
             <div class="card-body">
               <h5 class="fw-normal">{{ product.name }}</h5>
               <div class="d-flex justify-content-between align-items-center">
                 <h6 class="fw-bolder">{{ product.price }} €</h6>
-                <form method="POST" action="{% url 'add_to_bag' product.id %}">
-                  {% csrf_token %}
-
-                  <input
-                    type="submit"
-                    class="btn custom-btn-success"
-                    value="Add to Bag"
-                  />
-                  <input
-                    type="hidden"
-                    name="quantity"
-                    value="1"
-                    id="{{ item.product.id }}"
-                  />
-                  <input
-                    type="hidden"
-                    name="redirect_url"
-                    value="{{ request.path }}"
-                  />
-                </form>
               </div>
             </div>
           </div>
