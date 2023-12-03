@@ -46,9 +46,9 @@
           <div class="card shadow-sm">
             <img
               class="bd-placeholder-img card-img-top"
-              width="100%"
               src="{{ product.image.url }}"
-            />
+              alt="{{ product.name }}"
+            >
 
             <div class="card-body">
               <h5 class="fw-normal">{{ product.name }}</h5>
@@ -107,6 +107,7 @@
         <div class="d-flex justify-content-center mb-4">
           <img
             src="{{ MEDIA_URL }}reviewer2.jpg"
+            alt="person"
             class="rounded-circle shadow-1-strong"
             width="150"
             height="150"
@@ -126,6 +127,7 @@
         <div class="d-flex justify-content-center mb-4">
           <img
             src="{{ MEDIA_URL }}reviewer1.jpg"
+            alt="person"
             class="rounded-circle shadow-1-strong"
             width="150"
             height="150"
@@ -145,6 +147,7 @@
         <div class="d-flex justify-content-center mb-4">
           <img
             src="{{ MEDIA_URL }}reviewer3.jpg"
+            alt="person"
             class="rounded-circle shadow-1-strong"
             width="150"
             height="150"

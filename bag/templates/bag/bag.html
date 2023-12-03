@@ -34,13 +34,13 @@
                 class="img-fluid"
                 src="{{ item.product.image.url }}"
                 alt="{{ item.product.name }}"
-              />
+              >
               {% else %}
               <img
                 class="img-fluid"
                 src="{{ MEDIA_URL }}noimage.png"
                 alt="{{ item.product.name }}"
-              />
+              >
               {% endif %}
             </div>
             <div class="col-7 d-flex flex-column ms-3">
@@ -78,7 +78,7 @@
                         max="99"
                         data-item_id="{{ item.item_id }}"
                         id="id_qty_{{ item.item_id }}"
-                      />
+                      >
                       <div class="input-group-append">
                         <button
                           class="increment-qty btn border-0"
@@ -118,7 +118,7 @@
               <div>
                 <h5><b>Summary</b></h5>
               </div>
-              <hr />
+              <hr >
             </div>
           </div>
           <div class="row">
